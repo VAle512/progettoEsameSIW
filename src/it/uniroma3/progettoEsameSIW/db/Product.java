@@ -27,7 +27,6 @@ public class Product {
 	
 	public Product(String name, String code, String description, Double price,
 			Integer storageQuantity) {
-		super();
 		this.name = name;
 		this.code = code;
 		this.description = description;

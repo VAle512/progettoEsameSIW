@@ -23,19 +23,49 @@ public class Provider {
 	private List<Product> products;
 	
 	public Provider(String vatin, String phoneNumber, String email) {
-		super();
 		this.vatin = vatin;
 		this.phoneNumber = phoneNumber;
 		this.email = email;
 	}
 
-	public Provider(Long id, String vatin, String phoneNumber, String email,
-			List<Product> products) {
-		super();
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getVatin() {
+		return vatin;
+	}
+
+	public void setVatin(String vatin) {
 		this.vatin = vatin;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public List<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Product> products) {
 		this.products = products;
 	}
+
 }

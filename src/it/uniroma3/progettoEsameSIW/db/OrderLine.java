@@ -7,7 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class OrderLine {
@@ -17,13 +17,12 @@ public class OrderLine {
 	private Long id;
 	private Double unitPrice;
 	private Integer quantity;
-	@OneToMany(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id")
 	@Column(nullable = false)
 	private Product product;
 	
 	public OrderLine(Double unitPrice, Integer quantity, Product product) {
-		super();
 		this.unitPrice = unitPrice;
 		this.quantity = quantity;
 		this.product = product;
