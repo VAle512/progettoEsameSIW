@@ -1,4 +1,4 @@
-package it.uniroma3.progettoEsameSIW.db;
+package it.uniroma3.progettoEsameSIW.model;
 
 import java.sql.Date;
 import java.util.List;
@@ -9,7 +9,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -23,10 +22,9 @@ public class Order {
 	private Date closeDate;
 	private Date evasionDate;
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "id")
 	@Column(nullable = false)
 	private Customer customer;
-	@OneToMany(fetch =FetchType.EAGER)
+	@OneToMany 
 	private List<OrderLine> orderLines;
 	
 	public Order(Date openDate, Date closeDate, Date evasionDate,

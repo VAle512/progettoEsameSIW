@@ -1,4 +1,4 @@
-package it.uniroma3.progettoEsameSIW.db;
+package it.uniroma3.progettoEsameSIW.model;
 
 import java.util.List;
 
@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+
 
 @Entity
 public class Product {

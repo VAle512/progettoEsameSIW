@@ -1,4 +1,4 @@
-package it.uniroma3.progettoEsameSIW.db;
+package it.uniroma3.progettoEsameSIW.model;
 
 import java.util.List;
 
@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
+
 
 @Entity
 public class Provider {
@@ -19,8 +21,10 @@ public class Provider {
 	private String vatin;
 	private String phoneNumber;
 	private String email;
-	@ManyToMany(mappedBy = "providers")
+	@ManyToMany
 	private List<Product> products;
+	@OneToOne
+	private Address address_id;
 	
 	public Provider(String vatin, String phoneNumber, String email) {
 		this.vatin = vatin;
