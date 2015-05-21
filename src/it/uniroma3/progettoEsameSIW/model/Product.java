@@ -8,8 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQuery;
 
-
+@NamedQuery(name="getAllProducts",query="SELECT p FROM Product p")
 @Entity
 public class Product {
 

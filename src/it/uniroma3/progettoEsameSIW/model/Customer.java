@@ -22,7 +22,6 @@ public class Customer {
 	private String surname;
 	private Date birthDate;
 	private Date registrationDate;
-	private String address;
 	private String email;
 	@OneToMany (mappedBy = "products")
 	private List<Order> orders;
@@ -34,7 +33,6 @@ public class Customer {
 		this.surname = surname;
 		this.birthDate = birthDate;
 		this.registrationDate = registrationDate;
-		this.address = address;
 		this.email = email;
 	}
 
@@ -87,17 +85,6 @@ public class Customer {
 	public void setRegistrationDate(Date registrationDate) {
 		this.registrationDate = registrationDate;
 	}
-
-
-	public String getAddress() {
-		return address;
-	}
-
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
 
 	public String getEmail() {
 		return email;
