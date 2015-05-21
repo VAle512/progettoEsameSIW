@@ -24,7 +24,9 @@ public class Provider {
 	@ManyToMany
 	private List<Product> products;
 	@OneToOne
-	private Address address_id;
+	private Address address;
+	
+	public Provider(){}
 	
 	public Provider(String vatin, String phoneNumber, String email) {
 		this.vatin = vatin;

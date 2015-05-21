@@ -24,8 +24,10 @@ public class Product {
 	private String description;
 	private Double price;
 	private Integer storageQuantity;
-	@ManyToMany
+	@ManyToMany(mappedBy = "products")
 	private List<Provider> providers;
+	
+	public Product(){}
 	
 	public Product(String name, String code, String description, Double price,
 			Integer storageQuantity) {

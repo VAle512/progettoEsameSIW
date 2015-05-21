@@ -11,8 +11,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="orders")
 public class Order {
 	
 	@Id
@@ -26,6 +28,8 @@ public class Order {
 	private Customer customer;
 	@OneToMany 
 	private List<OrderLine> orderLines;
+	
+	public Order(){}
 	
 	public Order(Date openDate, Date closeDate, Date evasionDate,
 			Customer customer) {

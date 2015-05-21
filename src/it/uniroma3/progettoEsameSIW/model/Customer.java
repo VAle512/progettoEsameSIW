@@ -2,7 +2,6 @@ package it.uniroma3.progettoEsameSIW.model;
 
 import java.sql.Date;
 import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,9 +22,10 @@ public class Customer {
 	private Date birthDate;
 	private Date registrationDate;
 	private String email;
-	@OneToMany (mappedBy = "products")
+	@OneToMany(mappedBy = "id")
 	private List<Order> orders;
 	
+	public Customer() {}
 	
 	public Customer(String name, String surname, Date birthDate,
 			Date registrationDate, String address, String email) {
