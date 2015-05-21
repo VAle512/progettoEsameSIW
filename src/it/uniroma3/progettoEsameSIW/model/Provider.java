@@ -17,7 +17,7 @@ public class Provider {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@Column(nullable = false)
+	@Column(unique = true,nullable = false)
 	private String vatin;
 	private String phoneNumber;
 	private String email;
@@ -73,5 +73,4 @@ public class Provider {
 	public void setProducts(List<Product> products) {
 		this.products = products;
 	}
-
 }

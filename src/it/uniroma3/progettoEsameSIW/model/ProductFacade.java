@@ -1,7 +1,6 @@
 package it.uniroma3.progettoEsameSIW.model;
 
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -13,12 +12,12 @@ public class ProductFacade {
 	private EntityManager em;
 	private EntityManagerFactory emf;
 	
-	public ProductFacade()	{
+	public ProductFacade() {
 		this.emf = Persistence.createEntityManagerFactory("dbProgettoSIW-unit");
 		this.em = this.emf.createEntityManager();
 	}
 	
-	public void close() 	{
+	public void close() {
 		this.em.close();
 		this.emf.close();
 	}
@@ -62,6 +61,4 @@ public class ProductFacade {
 		tx.commit();
 		this.close();
 	}
-			
-
 }

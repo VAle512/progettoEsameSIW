@@ -5,7 +5,6 @@ import it.uniroma3.progettoEsameSIW.controller.action.Action;
 import java.io.IOException;
 import java.util.Scanner;
 
-import javax.annotation.ManagedBean;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -14,7 +13,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@ManagedBean
 @WebServlet("/controller/*")
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -50,7 +48,7 @@ public class Controller extends HttpServlet {
 		String action = scanner.next();
 		action = action.substring(0,1).toUpperCase() + action.substring(1);
 
-		String actionName = "it.uniroma3.progettoEsameSIWcontroller.action." + action + model;
+		String actionName = "it.uniroma3.progettoEsameSIW.controller.action." + action + model;
 		return actionName;
 	}
 }

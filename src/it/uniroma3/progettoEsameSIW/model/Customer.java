@@ -2,11 +2,13 @@ package it.uniroma3.progettoEsameSIW.model;
 
 import java.sql.Date;
 import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -22,7 +24,8 @@ public class Customer {
 	private Date birthDate;
 	private Date registrationDate;
 	private String email;
-	@OneToMany(mappedBy = "id")
+	@OneToMany
+	@JoinColumn(name = "id")
 	private List<Order> orders;
 	
 	public Customer() {}

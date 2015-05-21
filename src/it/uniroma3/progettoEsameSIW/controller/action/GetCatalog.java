@@ -11,11 +11,11 @@ public class GetCatalog implements Action {
 
 	@Override
 	public String perform(HttpServletRequest request) {
-		
+
 		ProductFacade facade = new ProductFacade();
 		List<Product> listP = facade.getAllProducts();
 		request.setAttribute("catalog", listP);
-		return "catalog.jsp";
+		return "/catalog.jsp";
 	}
 
 }
