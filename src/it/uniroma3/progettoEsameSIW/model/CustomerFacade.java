@@ -1,12 +1,15 @@
 package it.uniroma3.progettoEsameSIW.model;
 
+<<<<<<< HEAD
 import java.util.Date;
 
+=======
+import java.sql.Date;
+>>>>>>> refs/remotes/origin/master
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-
 
 public class CustomerFacade {
 	
