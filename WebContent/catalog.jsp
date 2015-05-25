@@ -6,13 +6,8 @@
 <head>
 <title>Product Catalog</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<<<<<<< HEAD
 <link rel="stylesheet" href="/progettoEsameSIW/bootstrap/css/bootstrap.min.css">
-=======
-<link rel="stylesheet"
-	href="/progettoEsameSIW/bootstrap/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
->>>>>>> refs/remotes/origin/master
 <script src="/progettoEsameSIW/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
