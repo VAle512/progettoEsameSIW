@@ -1,14 +1,15 @@
 package it.uniroma3.progettoEsameSIW.controller.action;
 
+import it.uniroma3.progettoEsameSIW.model.Customer;
+import it.uniroma3.progettoEsameSIW.model.Order;
 import it.uniroma3.progettoEsameSIW.model.Product;
-import it.uniroma3.progettoEsameSIW.model.ProductFacade;
-
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class GetCatalog implements Action {
+public class CreateNewOrder implements Action {
 
 	@Override
 	public String perform(HttpServletRequest request) {
@@ -21,9 +22,12 @@ public class GetCatalog implements Action {
 		List<Product> listP = new LinkedList<Product>();
 		listP.add(p1);
 		listP.add(p2);
-		
 		request.setAttribute("catalog", listP);
-		return "/catalog.jsp";
+		
+		Customer c = (Customer)request.getAttribute("customer");
+		Order newOrder = new Order();
+		request.setAttribute("newOrder", newOrder);
+		return "/newOrder.jsp";
 	}
 
 }

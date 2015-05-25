@@ -1,8 +1,8 @@
 package it.uniroma3.progettoEsameSIW.model;
 
-import java.sql.Date;
-import java.util.List;
 
+import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -86,8 +86,4 @@ public class Order {
 	public void setOrderLines(List<OrderLine> orderLines) {
 		this.orderLines = orderLines;
 	}
-	
-	
-
-	
 }
