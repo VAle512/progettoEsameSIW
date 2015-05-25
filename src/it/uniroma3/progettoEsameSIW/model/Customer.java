@@ -1,8 +1,9 @@
 package it.uniroma3.progettoEsameSIW.model;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Customer {
@@ -27,16 +29,25 @@ public class Customer {
 	@OneToMany
 	@JoinColumn(name = "id")
 	private List<Order> orders;
+	@OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
+	private Address address;
+	@Column(nullable = false, unique = true)
+	private String userId;
+	@Column(nullable = false)
+	private String password;
 	
 	public Customer() {}
 	
 	public Customer(String name, String surname, Date birthDate,
-			Date registrationDate, String address, String email) {
+			Date registrationDate, Address address, String email, String userID, String password) {
 		this.name = name;
 		this.surname = surname;
 		this.birthDate = birthDate;
 		this.registrationDate = registrationDate;
 		this.email = email;
+		this.address = address;
+		this.userId = userID;
+		this.password = password;
 	}
 
 
