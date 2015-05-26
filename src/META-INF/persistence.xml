@@ -15,7 +15,7 @@
 			<property name="openjpa.ConnectionDriverName" value="org.postgresql.Driver" />
 			<property name="openjpa.ConnectionUserName" value="postgres" />
 			<property name="openjpa.ConnectionPassword" value="postgres" />
-			<property name="openjpa.ConnectionURL" value="jdbc:postgresql://localhost/dbProgettoSIW" />
+			<property name="openjpa.ConnectionURL" value="jdbc:postgresql://dbprogettosiw.cuzxlgyejqmc.eu-west-1.rds.amazonaws.com:5432/dbProgettoSIW" />
 
 			<property name="openjpa.jdbc.DBDictionary" value="postgres" />
 			<property name="openjpa.jdbc.SynchronizeMappings"
