@@ -1,6 +1,7 @@
 package it.uniroma3.progettoEsameSIW.model;
 
-import java.sql.Date;
+
+import java.util.Date;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -22,8 +23,9 @@ public class CustomerFacade {
 	}
 	
 	public Customer createCustomer(String name, String surname, Date birthDate,
-			Date registrationDate, String address, String email)	{
-		Customer c = new Customer(name, surname, birthDate, registrationDate, address, email);
+			Date registrationDate, Address address, String email, String userID, String password)	{
+		
+		Customer c = new Customer(name, surname, birthDate, registrationDate, address, email, userID, password);
 		EntityTransaction tx = this.em.getTransaction();
 		tx.begin();
 		this.em.persist(c);
