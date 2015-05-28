@@ -1,8 +1,8 @@
-package it.uniroma3.progettoEsameSIW.controlle.helper;
+package it.uniroma3.progettoEsameSIW.controller.helper;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class HelperAddressId {
+public class HelperCustomerId {
 
 	public boolean isValid(HttpServletRequest request) {
 
@@ -24,7 +24,5 @@ public class HelperAddressId {
 		}
 		return !errors;
 	}
-
-
 
 }

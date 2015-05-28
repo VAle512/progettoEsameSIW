@@ -4,8 +4,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import it.uniroma3.progettoEsameSIW.controlle.helper.HelperAddress;
-import it.uniroma3.progettoEsameSIW.controlle.helper.HelperCustomer;
+import it.uniroma3.progettoEsameSIW.controller.helper.HelperAddress;
+import it.uniroma3.progettoEsameSIW.controller.helper.HelperCustomer;
 import it.uniroma3.progettoEsameSIW.model.Address;
 import it.uniroma3.progettoEsameSIW.model.Customer;
 import it.uniroma3.progettoEsameSIW.model.CustomerFacade;

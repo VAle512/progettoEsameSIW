@@ -1,21 +1,20 @@
 package it.uniroma3.progettoEsameSIW.model;
 
-
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-//import javax.persistence.Query;
+import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
 
-@Stateless
+@Stateless(name="pFacade")
 public class ProductFacade {
 	
 	@PersistenceContext(unitName = "dbProgettoSIW-unit")
 	private EntityManager em;
 
 	
-	public Product createProduct(String name, String code, Double price, String description,
+	public Product createProduct(String name, String code, String description, Double price,
 			Integer storageQuantity)	{
 		Product p = new Product(name, code, description, price, storageQuantity);
 		this.em.persist(p);
@@ -28,13 +27,13 @@ public class ProductFacade {
 	}
 	
 	public List<Product> getAllProducts()	{
-//		Query q = this.em.createNamedQuery("getAllProducts");
-//		List<Product> lpList = q.getResultList();
-//		return lpList;
-		CriteriaQuery<Product> cq = em.getCriteriaBuilder().createQuery(Product.class);
-        cq.select(cq.from(Product.class));
-        List<Product> products = em.createQuery(cq).getResultList();
-		return products;
+		Query q = this.em.createNamedQuery("getAllProducts");
+		List<Product> lpList = q.getResultList();
+		return lpList;
+//		CriteriaQuery<Product> cq = em.getCriteriaBuilder().createQuery(Product.class);
+//        cq.select(cq.from(Product.class));
+//        List<Product> products = em.createQuery(cq).getResultList();
+//		return products;
 	}
 	
 	public void deleteProduct(Long id)		{
