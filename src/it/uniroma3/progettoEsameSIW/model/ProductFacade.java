@@ -15,7 +15,7 @@ public class ProductFacade {
 	private EntityManager em;
 
 	
-	public Product createProduct(String name, String code, String description, Double price,
+	public Product createProduct(String name, String code, Double price, String description,
 			Integer storageQuantity)	{
 		Product p = new Product(name, code, description, price, storageQuantity);
 		this.em.persist(p);
