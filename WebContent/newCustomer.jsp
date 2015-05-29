@@ -7,7 +7,7 @@
 <title>Registrazione</title>
 </head>
 <body>
-<form action="<c:url value="/controller/customer.create" />" method="get">
+<form action="<c:url value="/controller/customer.create" />" method="get"/>
 
 	<div>Name: <input type="text" name="name" value="${param.name}"/> ${nameErr}</div>
 	<div>Surname: <input type="text" name="surname" value="${param.surname}"/> ${surnameErr}</div>

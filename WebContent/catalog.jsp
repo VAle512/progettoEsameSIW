@@ -5,26 +5,47 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>Products</title>
+ <link rel="stylesheet" href="/progettoEsameSIW/bootstrap/css/bootstrap.min.css">
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/progettoEsameSIW/bootsrap/js/bootstrap.min.js"></script>
+<title>Catalog</title>
 </head>
 <body>
 <f:view>
-<h1>Products</h1>
+<h1>Catalog</h1>
 <h:form>
-<table>
-	<tr>
-		<th>Name</th><th>Price</th>
-	</tr>
+<div class="container">
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Code</th>
+        <th>Price</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+        <tbody>
 	<c:forEach var="product" items="#{productController.products}">
-		<tr><td>
-		<h:commandLink action="#{productController.findProduct}" value="#{product.name}">
+		<tr>
+        <td>
+        <h:commandLink action="#{productController.findProduct}" value="#{product.name}">
 			<f:param name="id" value="#{product.id}" />
-		</h:commandLink>
-		</td><td>${product.price}</td></tr>
+		</h:commandLink></td>
+        <td>${product.code}</td>
+        <td>${product.price}</td>
+        <td>${product.storageQuantity}</td>
+        <button type="button" class="btn btn-success">Bottone</button>
+      </tr>
+		
+		
 	</c:forEach>
+	</tbody>
 </table>
+</div>
 </h:form>
 
 </f:view>
 </body>
 </html>
+
+
+
