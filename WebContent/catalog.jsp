@@ -42,7 +42,6 @@
 </table>
 </div>
 </h:form>
-
 </f:view>
 </body>
 </html>

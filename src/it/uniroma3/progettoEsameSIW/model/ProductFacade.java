@@ -30,10 +30,6 @@ public class ProductFacade {
 		Query q = this.em.createNamedQuery("getAllProducts");
 		List<Product> lpList = q.getResultList();
 		return lpList;
-//		CriteriaQuery<Product> cq = em.getCriteriaBuilder().createQuery(Product.class);
-//        cq.select(cq.from(Product.class));
-//        List<Product> products = em.createQuery(cq).getResultList();
-//		return products;
 	}
 	
 	public void deleteProduct(Long id)		{

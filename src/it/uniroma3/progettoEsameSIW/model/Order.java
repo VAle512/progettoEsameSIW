@@ -28,15 +28,16 @@ public class Order {
 	private Customer customer;
 	@OneToMany 
 	private List<OrderLine> orderLines;
+	private Integer status;
 	
 	public Order(){}
 	
-	public Order(Date openDate, Date closeDate, Date evasionDate,
-			Customer customer) {
+	public Order(Date openDate, Customer customer) {
 		this.openDate = openDate;
-		this.closeDate = closeDate;
-		this.evasionDate = evasionDate;
+		this.closeDate = null;
+		this.evasionDate = null;
 		this.customer = customer;
+		this.status = new Integer(1);
 	}
 
 	public Long getId() {
@@ -85,5 +86,13 @@ public class Order {
 
 	public void setOrderLines(List<OrderLine> orderLines) {
 		this.orderLines = orderLines;
+	}
+
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
 	}
 }
