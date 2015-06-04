@@ -1,64 +1,90 @@
-<%@ page language="java" contentType="text/html; charset=US-ASCII" pageEncoding="US-ASCII"%>
-<%@ taglib prefix="f"  uri="http://java.sun.com/jsf/core"%>
-<%@ taglib prefix="h"  uri="http://java.sun.com/jsf/html"%>
+<%@ page language="java" contentType="text/html; charset=US-ASCII"
+	pageEncoding="US-ASCII"%>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsf/core"%>
+<%@ taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>New Product</title>
+<title>Customer Registration</title>
 </head>
 <body>
-<f:view>
-<h:form>
-    <div>Name: <h:inputText value="#{customerController.name}" 
-                     required="true"
-                     requiredMessage="Name is mandatory"
-                     id="name"/> <h:message for="name" />
-	</div>
-    <div>Surname: <h:inputText value="#{customerController.surname}" 
-                     required="true"
-                     requiredMessage="Code is mandatory"
-                     id="code"/> <h:message for="code" />
-	</div>
-    <div>UserId: <h:inputText value="#{customerController.userID}" 
-                     required="true"
-                     requiredMessage="Price is mandatory"
-                     converterMessage="Price must be a number"
-                     id="price"/> <h:message for="price" />
-	</div>
-    <div>Password: <h:inputTextarea value="#{customerController.password}" 
-    				required="false" 
-    				cols="20" 
-    				rows="5" />           
-	</div>
-	<div>: <h:inputTextarea value="#{customerController.password}" 
-    				required="false" 
-    				cols="20" 
-    				rows="5" />           
-	</div>
-	<div>
-		<h:commandButton value="Submit"  action="#{productController.createProduct}"/>
-	</div>
-	<h:commandLink action="#{productController.listProducts}"
-						value="List all Products" />
-</h:form>
-</f:view>
-<form action="<c:url value="/controller/customer.create" />" method="get"/>
-
-	<div>Name: <input type="text" name="name" value="${param.name}"/> ${nameErr}</div>
-	<div>Surname: <input type="text" name="surname" value="${param.surname}"/> ${surnameErr}</div>
-	<div>Birth Date: <input type="text" name="birthDate" value="${param.birthDate}"/> ${birthDateErr}</div>
-	<div>Email: <input type="text" name="email" value="${param.email}"/> ${emailErr}</div>
-	<div>UserID: <input type="text" name="userId" value="${param.userId}"/> ${userIdErr}</div>
-	<div>Password: <input type="text" name="password" value="${param.password}"/> ${passwordErr}</div>
-	<div>Street: <input type="text" name="street" value="${param.street}"/> ${streetErr}</div>
-	<div>City: <input type="text" name="city" value="${param.city}"/> ${cityErr}</div>
-	<div>State: <input type="text" name="state" value="${param.state}"/> ${stateErr}</div>
-	<div>Zipcode: <input type="text" name="zipcode" value="${param.zipcode}"/> ${zipcodeErr}</div>
-	<div>Country: <input type="text" name="country" value="${param.country}"/> ${countryErr}</div>
-	<div><input type="submit" name="sumbit" value="invia" /></div>
-	</form>
-
->>>>>>> 92dae96afe06043dc94df16e9036fd63d4c14b95
+	<f:view>
+		<h:form>
+			<div>
+				Name:
+				<h:inputText value="#{customerController.name}" required="true"
+					requiredMessage="Name is mandatory" id="name" />
+				<h:message for="name" />
+			</div>
+			<div>
+				Surname:
+				<h:inputText value="#{customerController.surname}" required="true"
+					requiredMessage="Code is mandatory" id="surname" />
+				<h:message for="surname" />
+			</div>
+			<div>
+				Birth date:
+				<h:inputText value="#{customerController.birthDate}" required="true"
+					requiredMessage="Birth date is mandatory" id="birthDate" />
+				<h:message for="birthDate" />
+			</div>
+			<div>
+				Email:
+				<h:inputText value="#{customerController.email}" required="true"
+					requiredMessage="Email is mandatory" id="email" />
+				<h:message for="email" />
+			</div>
+			<div>
+				Street address:
+				<h:inputText value="#{customerController.street}" required="true"
+					requiredMessage="Street address is mandatory" id="street" />
+				<h:message for="street" />
+			</div>
+			<div>
+				City:
+				<h:inputText value="#{customerController.city}" required="true"
+					requiredMessage="City is mandatory" id="city" />
+				<h:message for="city" />
+			</div>
+			<div>
+				State or region:
+				<h:inputText value="#{customerController.state}" required="true"
+					requiredMessage="State or region are mandatory" id="state" />
+				<h:message for="state" />
+			</div>
+			<div>
+				Zipcode:
+				<h:inputText value="#{customerController.zipcode}" required="true"
+					requiredMessage="Zipcode is mandatory" id="zipcode" />
+				<h:message for="zipcode" />
+			</div>
+			<div>
+				Country:
+				<h:inputText value="#{customerController.country}" required="true"
+					requiredMessage="Origin country is mandatory" id="country" />
+				<h:message for="country" />
+			</div>
+			<div>
+				User ID:
+				<h:inputText value="#{customerController.userID}" required="true"
+					requiredMessage="User ID is mandatory" id="userId" />
+				<h:message for="userId" />
+			</div>
+			<div>
+				Password:
+				<h:inputTextarea value="#{customerController.password}"
+					required="true" requiredMessage="Password is mandatory"
+					id="password" />
+				<h:message for="password" />
+			</div>
+			<div>
+				<h:commandButton value="Submit"
+					action="#{productController.createProduct}" />
+			</div>
+			<h:commandLink action="#{productController.listProducts}"
+				value="List all Products" />
+		</h:form>
+	</f:view>
 </body>
 </html>
