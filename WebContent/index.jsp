@@ -17,6 +17,10 @@
 					<h:commandLink action="#{productController.getCatalog}"
 						value="Get Catalog" />
 				</h:form></li>
+			<li><h:form>
+					<h:commandLink action="#{orderController.createOrder}"
+						value="New Order" />
+				</h:form></li>
 		</ul>
 	</f:view>
 </body>

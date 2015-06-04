@@ -26,7 +26,7 @@ public class Order {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@Column(nullable = false)
 	private Customer customer;
-	@OneToMany 
+	@OneToMany
 	private List<OrderLine> orderLines;
 	private Integer status;
 	
