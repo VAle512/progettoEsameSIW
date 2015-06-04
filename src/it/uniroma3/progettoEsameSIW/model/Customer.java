@@ -26,7 +26,6 @@ public class Customer {
 	private Date registrationDate;
 	private String email;
 	@OneToMany
-	@JoinColumn(name = "id")
 	private List<Order> orders;
 	@OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
 	private Address address;

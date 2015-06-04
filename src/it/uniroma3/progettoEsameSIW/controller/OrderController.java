@@ -28,13 +28,21 @@ public class OrderController {
 	private List<OrderLine> orderLines;
 	private Integer status;
 
-	@EJB(name="oFAcade")
+	@EJB(name="oFacade")
 	private OrderFacade orderFacade;
+	@EJB(name="cFacade")
+	private CustomerFacade f;
 
 	public String createOrder() {
 		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
-		Customer c = (Customer)request.getAttribute("utenteConnesso");
-		this.order = orderFacade.createOrder(new Date(), c);
+		/*TODO
+		 * non inserisce customer, per ora settato a null
+		 * DA RISOLVERE!
+		 */
+		//Customer c = (Customer)request.getSession().getAttribute("currentUser");
+		//Customer c = (Customer)request.getAttribute("currentUser");
+		Order newOrder = new Order(new Date(), null);
+		request.getSession().setAttribute("newOrder", newOrder);
 		return "newOrder";
 	}
 
