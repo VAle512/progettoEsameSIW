@@ -4,6 +4,8 @@ import it.uniroma3.progettoEsameSIW.model.Customer;
 import it.uniroma3.progettoEsameSIW.model.Order;
 import it.uniroma3.progettoEsameSIW.model.OrderFacade;
 import it.uniroma3.progettoEsameSIW.model.OrderLine;
+import it.uniroma3.progettoEsameSIW.model.Product;
+import it.uniroma3.progettoEsameSIW.model.ProductFacade;
 
 import java.util.Date;
 import java.util.List;
@@ -26,18 +28,28 @@ public class OrderController {
 	private Order order;
 	private List<OrderLine> orderLines;
 	private Integer status;
+	private List<Product> products;
+	private Product product;
 
 	
 	@EJB(name="oFacade")
 	private OrderFacade orderFacade;
+	@EJB(name = "pFacade")
+	private ProductFacade productFacade;
 
 	public String createOrder() {
 		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
 		Customer c = (Customer)request.getAttribute("utenteConnesso");
-		this.order = orderFacade.createOrder(new Date(), c);
+//		this.order = orderFacade.createOrder(new Date(), c);
+		this.setProducts(productFacade.getAllProducts());
 		return "newOrder";
 	}
-
+	
+	public String findProduct() {
+		this.setProduct(productFacade.getProduct(id));
+		return "product";
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -108,6 +120,22 @@ public class OrderController {
 
 	public void setOrderFacade(OrderFacade orderFacade) {
 		this.orderFacade = orderFacade;
+	}
+
+	public List<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 
 }

@@ -21,6 +21,7 @@
 					<h:commandLink action="#{orderController.createOrder}"
 						value="New Order" />
 				</h:form></li>
+
 		</ul>
 	</f:view>
 </body>

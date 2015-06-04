@@ -10,16 +10,56 @@
 <title>New Order</title>
 </head>
 <body>
-<%@ include file="catalog.jsp" %>
-<form action="<c:url value="/controller/customer.create" />" method="get">
-
-	<div>Open Date: <input type="text" name="name" value="${param.openDate}"/> ${openDateErr}</div>
-	<div>Close Date: <input type="text" name="surname" value="${param.closeDate}"/> ${closeDate}</div>
-	<div>Evasion Date: <input type="text" name="birthDate" value="${param.evasionDate}"/> ${evasionDateErr}</div>
-	<div>Customer: <input type="text" name="birthDate" value="${param.customer}"/> ${customerErr}</div>
-	<div>Status: <input type="text" name="birthDate" value="${param.status}"/> ${statusErr}</div>
-	<div><input type="submit" name="sumbit" value="invia" /></div>
-	</form>
+<f:view>
+<h1>New Order</h1>
+<h:form>
+<div class="container">
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Code</th>
+        <th>Price</th>
+        <th>StorageQuantity</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+        <tbody>
+	<c:forEach var="product" items="#{orderController.products}">
+		<tr>
+        <td>
+        <h:commandLink action="#{orderController.findProduct}" value="#{product.name}">
+			<f:param name="id" value="#{product.id}" />
+		</h:commandLink></td>
+        <td>${product.code}</td>
+        <td>${product.price}</td>
+        <td>${product.storageQuantity}</td>
+        <td>
+  <label for="sel1">Select Quantity:</label>
+  <select class="form-control" id="sel1">
+    <c:forEach var="i" begin="1" end="${product.storageQuantity}">
+	<option>${i}</option>
+</c:forEach>
+    
+    
+  </select>
+</td>
+<td><h:form>
+					<h:commandLink action="#{orderLineController.createOrderLines}"
+					<f:param name="unitPrice" value="#{product.price}" name="quantity" value="#{5}"name="product" value="#{product}" />
+						value="<button type="button" class="btn btn-success">Success</button>" />
+				</h:form></td>
+        
+      </tr>
+		
+		
+	</c:forEach>
+	</tbody>
+</table>
+</div>
+</h:form>
+</f:view>
 
 </body>
 </html>
+

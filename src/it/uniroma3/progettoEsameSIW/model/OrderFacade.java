@@ -1,10 +1,10 @@
 package it.uniroma3.progettoEsameSIW.model;
 
 import java.util.Date;
-
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
 
 @Stateless(name = "oFacade")
 public class OrderFacade {
@@ -17,4 +17,5 @@ public class OrderFacade {
 		this.em.persist(o);
 		return o;
 	}
+	
 }
