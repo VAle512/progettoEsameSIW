@@ -2,18 +2,12 @@ package it.uniroma3.progettoEsameSIW.controller;
 
 import it.uniroma3.progettoEsameSIW.model.Product;
 import it.uniroma3.progettoEsameSIW.model.ProductFacade;
-
 import java.util.List;
-
-import javax.annotation.Resource;
 import javax.ejb.EJB;
-import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.inject.Named;
 
 @ManagedBean
-@SessionScoped
 public class ProductController {
 	
 	@ManagedProperty(value="#{param.id}")

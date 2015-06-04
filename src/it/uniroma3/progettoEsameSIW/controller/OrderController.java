@@ -1,32 +1,23 @@
 package it.uniroma3.progettoEsameSIW.controller;
 
 import it.uniroma3.progettoEsameSIW.model.Customer;
+import it.uniroma3.progettoEsameSIW.model.CustomerFacade;
 import it.uniroma3.progettoEsameSIW.model.Order;
 import it.uniroma3.progettoEsameSIW.model.OrderFacade;
 import it.uniroma3.progettoEsameSIW.model.OrderLine;
-import it.uniroma3.progettoEsameSIW.model.Product;
-import it.uniroma3.progettoEsameSIW.model.ProductFacade;
 
 import java.util.Date;
 import java.util.List;
 
-import javax.annotation.ManagedBean;
+import javax.faces.bean.ManagedBean;
 import javax.ejb.EJB;
-import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.context.FacesContext;
-import javax.persistence.Column;
-import javax.persistence.FetchType;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 @ManagedBean
-@SessionScoped
 public class OrderController {
-	
+
 	@ManagedProperty(value="#{param.id}")
 	private Long id;
 	private Date openDate;
@@ -36,13 +27,86 @@ public class OrderController {
 	private Order order;
 	private List<OrderLine> orderLines;
 	private Integer status;
-	
+
 	@EJB(name="oFAcade")
 	private OrderFacade orderFacade;
-	
+
 	public String createOrder() {
 		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
-		this.order = orderFacade.createOrder(new Date(), customer)
-	
-}
+		Customer c = (Customer)request.getAttribute("utenteConnesso");
+		this.order = orderFacade.createOrder(new Date(), c);
+		return "newOrder";
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Date getOpenDate() {
+		return openDate;
+	}
+
+	public void setOpenDate(Date openDate) {
+		this.openDate = openDate;
+	}
+
+	public Date getCloseDate() {
+		return closeDate;
+	}
+
+	public void setCloseDate(Date closeDate) {
+		this.closeDate = closeDate;
+	}
+
+	public Date getEvasionDate() {
+		return evasionDate;
+	}
+
+	public void setEvasionDate(Date evasionDate) {
+		this.evasionDate = evasionDate;
+	}
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+	public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
+	}
+
+	public List<OrderLine> getOrderLines() {
+		return orderLines;
+	}
+
+	public void setOrderLines(List<OrderLine> orderLines) {
+		this.orderLines = orderLines;
+	}
+
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
+
+	public OrderFacade getOrderFacade() {
+		return orderFacade;
+	}
+
+	public void setOrderFacade(OrderFacade orderFacade) {
+		this.orderFacade = orderFacade;
+	}
 }
