@@ -33,7 +33,7 @@
         <td>${product.code}</td>
         <td>${product.price}</td>
         <td>${product.storageQuantity}</td>
-        <button type="button" class="btn btn-success">Bottone</button>
+        
       </tr>
 		
 		

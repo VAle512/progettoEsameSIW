@@ -37,12 +37,13 @@ public class OrderController {
 	private List<OrderLine> orderLines;
 	private Integer status;
 	
-	@EJB(name="oFAcade")
+	@EJB(name="oFacade")
 	private OrderFacade orderFacade;
 	
 	public String createOrder() {
 		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
-		this.order = orderFacade.createOrder(new Date(), customer)
+		this.order = orderFacade.createOrder(new Date(), customer);
+		return null;
 	
 }
 }
