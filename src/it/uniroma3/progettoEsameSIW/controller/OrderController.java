@@ -1,6 +1,7 @@
 package it.uniroma3.progettoEsameSIW.controller;
 
 import it.uniroma3.progettoEsameSIW.model.Customer;
+import it.uniroma3.progettoEsameSIW.model.CustomerFacade;
 import it.uniroma3.progettoEsameSIW.model.Order;
 import it.uniroma3.progettoEsameSIW.model.OrderFacade;
 import it.uniroma3.progettoEsameSIW.model.OrderLine;
@@ -31,17 +32,32 @@ public class OrderController {
 	private List<Product> products;
 	private Product product;
 
-	
 	@EJB(name="oFacade")
 	private OrderFacade orderFacade;
+<<<<<<< HEAD
 	@EJB(name = "pFacade")
 	private ProductFacade productFacade;
+=======
+	@EJB(name="cFacade")
+	private CustomerFacade f;
+>>>>>>> branch 'master' of https://github.com/VAle512/progettoEsameSIW.git
 
 	public String createOrder() {
 		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
+<<<<<<< HEAD
 		Customer c = (Customer)request.getAttribute("utenteConnesso");
 //		this.order = orderFacade.createOrder(new Date(), c);
 		this.setProducts(productFacade.getAllProducts());
+=======
+		/*TODO
+		 * non inserisce customer, per ora settato a null
+		 * DA RISOLVERE!
+		 */
+		//Customer c = (Customer)request.getSession().getAttribute("currentUser");
+		//Customer c = (Customer)request.getAttribute("currentUser");
+		Order newOrder = new Order(new Date(), null);
+		request.getSession().setAttribute("newOrder", newOrder);
+>>>>>>> branch 'master' of https://github.com/VAle512/progettoEsameSIW.git
 		return "newOrder";
 	}
 	

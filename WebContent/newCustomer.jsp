@@ -10,7 +10,7 @@
 </head>
 <body>
 	<f:view>
-		<h:form>
+		<h:form id="registrationForm">
 			<div>
 				Name:
 				<h:inputText value="#{customerController.name}" required="true"
@@ -27,7 +27,7 @@
 				Birth date:
 				<h:inputText value="#{customerController.birthDate}" required="true"
 					requiredMessage="Birth date is mandatory" id="birthDate" />
-				<h:message for="birthDate" />
+				<h:message for="birthDate" errorClass="errorMessage" />
 			</div>
 			<div>
 				Email:
@@ -67,23 +67,21 @@
 			</div>
 			<div>
 				User ID:
-				<h:inputText value="#{customerController.userID}" required="true"
+				<h:inputText value="#{customerController.userId}" required="true"
 					requiredMessage="User ID is mandatory" id="userId" />
 				<h:message for="userId" />
 			</div>
 			<div>
 				Password:
-				<h:inputTextarea value="#{customerController.password}"
+				<h:inputSecret value="#{customerController.password}"
 					required="true" requiredMessage="Password is mandatory"
 					id="password" />
 				<h:message for="password" />
 			</div>
 			<div>
-				<h:commandButton value="Submit"
-					action="#{productController.createProduct}" />
+				<h:commandButton value="Register"
+					action="#{customerController.CreateCustomer}" />
 			</div>
-			<h:commandLink action="#{productController.listProducts}"
-				value="List all Products" />
 		</h:form>
 	</f:view>
 </body>
