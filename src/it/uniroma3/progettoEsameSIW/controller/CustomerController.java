@@ -54,7 +54,7 @@ public class CustomerController {
 		Address address = new Address(street, city, state, zipcode, country);
 		Customer c = this.customerFacade.createCustomer(name, surname, birthDate, new Date(), address, email, userId, password);
 		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
-		request.getSession().setAttribute("currentUser",c);
+		request.getSession().setAttribute("currentUserId",c.getId());
 		return "index";
 	}
 

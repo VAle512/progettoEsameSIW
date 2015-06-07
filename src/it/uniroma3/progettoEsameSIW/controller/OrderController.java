@@ -34,31 +34,23 @@ public class OrderController {
 
 	@EJB(name="oFacade")
 	private OrderFacade orderFacade;
-<<<<<<< HEAD
 	@EJB(name = "pFacade")
 	private ProductFacade productFacade;
-=======
-	@EJB(name="cFacade")
-	private CustomerFacade f;
->>>>>>> branch 'master' of https://github.com/VAle512/progettoEsameSIW.git
-
+	
 	public String createOrder() {
 		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
-<<<<<<< HEAD
-		Customer c = (Customer)request.getAttribute("utenteConnesso");
-//		this.order = orderFacade.createOrder(new Date(), c);
 		this.setProducts(productFacade.getAllProducts());
-=======
-		/*TODO
-		 * non inserisce customer, per ora settato a null
-		 * DA RISOLVERE!
-		 */
-		//Customer c = (Customer)request.getSession().getAttribute("currentUser");
-		//Customer c = (Customer)request.getAttribute("currentUser");
 		Order newOrder = new Order(new Date(), null);
 		request.getSession().setAttribute("newOrder", newOrder);
->>>>>>> branch 'master' of https://github.com/VAle512/progettoEsameSIW.git
 		return "newOrder";
+	}
+	
+	public String endOrder(){
+		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
+		Order o = (Order)request.getSession().getAttribute("newOrder");
+		Long id = (Long)request.getSession().getAttribute("curretUserId");
+		this.orderFacade.persistOrder(o,id);
+		return "index";
 	}
 	
 	public String findProduct() {
