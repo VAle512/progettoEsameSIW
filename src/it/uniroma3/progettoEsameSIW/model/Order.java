@@ -26,7 +26,7 @@ public class Order {
 	private Date closeDate;
 	private Date evasionDate;
 	@ManyToOne(fetch = FetchType.EAGER)
-	//@Column(nullable = false)
+	@Column(nullable = false)
 	private Customer customer;
 	@OneToMany
 	private List<OrderLine> orderLines;

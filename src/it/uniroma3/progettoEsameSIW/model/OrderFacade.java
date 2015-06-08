@@ -1,6 +1,7 @@
 package it.uniroma3.progettoEsameSIW.model;
 
 import java.util.Date;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -18,6 +19,7 @@ public class OrderFacade {
 		return o;
 	}
 
+
 	public boolean persistOrder(Order newOrder) {
 		try{
 			this.em.persist(newOrder);
@@ -26,6 +28,14 @@ public class OrderFacade {
 		catch(Exception e){
 			return false;
 		}
+	}
+
+	
+	public void persistOrder(Order newOrder, Long userId) {
+		Customer c = this.em.find(Customer.class, userId);
+		newOrder.setCustomer(c);
+		this.em.persist(newOrder);
+
 	}
 
 }
