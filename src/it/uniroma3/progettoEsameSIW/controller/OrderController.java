@@ -44,19 +44,7 @@ public class OrderController {
 
 	public String createOrder() {
 		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
-
-		Customer c = (Customer)request.getAttribute("utenteConnesso");
-//		this.order = orderFacade.createOrder(new Date(), c);
-
 		this.setProducts(productFacade.getAllProducts());
-
-		/*TODO
-		 * non inserisce customer, per ora settato a null
-		 * DA RISOLVERE!
-		 */
-		//Customer c = (Customer)request.getSession().getAttribute("currentUser");
-		//Customer c = (Customer)request.getAttribute("currentUser");
-
 		Order newOrder = new Order(new Date(), null);
 		request.getSession().setAttribute("newOrder", newOrder);
 		return "newOrder";
@@ -71,7 +59,7 @@ public class OrderController {
 	}
 	
 	public String findProduct() {
-		this.setProduct(productFacade.getProduct(id));
+		this.product = productFacade.getProduct(id);
 		return "product";
 	}
 	
