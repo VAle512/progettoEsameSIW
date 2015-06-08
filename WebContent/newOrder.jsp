@@ -36,13 +36,12 @@
         <td>${product.storageQuantity}</td>
         <td><div>Quantity: <h:inputText value="#{orderLineController.quantity}" 
                      required="true"
-                     requiredMessage="Name is mandatory"
-                     id="name"/> <h:message for="name" />
+                     requiredMessage="Quantity is mandatory"
+                     id="quantity"/> <h:message for="quantity" />
 	</div> </td>
 	
- <c:set var="orderLineController.unitPrice" value="${product.price}"/>
- <c:set var="orderLineController.product" value="${product}"/>
-	
+	<c:set var="orderLineController.unitPrice" value="${product.price}"/>
+ <c:set var="orderLineController.productId" value="${product.id}"/>
   
         <td> <div>
 

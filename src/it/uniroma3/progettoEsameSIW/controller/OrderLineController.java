@@ -15,7 +15,7 @@ public class OrderLineController {
 	private Long id;
 	private Double unitPrice;
 	private Integer quantity;
-	private Product product;
+	private Long productId;
 	private OrderLine orderLine;
 	
 	
@@ -24,10 +24,18 @@ public class OrderLineController {
 	
 	
 	public String createOrderLine() {
-		this.orderLine = orderLineFacade.createOrderLine(unitPrice, quantity, product);
+		this.orderLine = orderLineFacade.createOrderLine(unitPrice, quantity, productId);
 		return "orderLine"; 
 	}
 	
+	public Long getProductId() {
+		return productId;
+	}
+
+	public void setProductId(Long productId) {
+		this.productId = productId;
+	}
+
 	public String findOrderLine(Long id) {
 		this.orderLine = orderLineFacade.getOrderLine(id);
 		return "orderLine";
@@ -57,14 +65,6 @@ public class OrderLineController {
 
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
-	}
-
-	public Product getProduct() {
-		return product;
-	}
-
-	public void setProduct(Product product) {
-		this.product = product;
 	}
 
 	public OrderLine getOrderLine() {

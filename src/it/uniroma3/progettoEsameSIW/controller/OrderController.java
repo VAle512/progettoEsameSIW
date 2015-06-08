@@ -71,7 +71,7 @@ public class OrderController {
 	}
 	
 	public String findProduct() {
-		this.setProduct(productFacade.getProduct(id));
+		this.product = productFacade.getProduct(id);
 		return "product";
 	}
 	
