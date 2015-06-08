@@ -14,6 +14,27 @@ public class OrderLineController {
 	@ManagedProperty(value="#{param.id}")
 	private Long id;
 	private Double unitPrice;
+	private Integer quantity;
+	private Product product;
+	private OrderLine orderLine;
+	
+	
+	@EJB(name= "oLFacade")
+	private OrderLineFacade orderLineFacade;
+	
+	
+	public String createOrderLine() {
+		this.orderLine = orderLineFacade.createOrderLine(unitPrice, quantity, product);
+		return "orderLine"; 
+	}
+	
+	public String findOrderLine(Long id) {
+		this.orderLine = orderLineFacade.getOrderLine(id);
+		return "orderLine";
+	}
+
+	
+	
 	public Long getId() {
 		return id;
 	}
@@ -53,32 +74,5 @@ public class OrderLineController {
 	public void setOrderLine(OrderLine orderLine) {
 		this.orderLine = orderLine;
 	}
-
-	public OrderLineFacade getOrderLineFacade() {
-		return orderLineFacade;
-	}
-
-	public void setOrderLineFacade(OrderLineFacade orderLineFacade) {
-		this.orderLineFacade = orderLineFacade;
-	}
-
-	private Integer quantity;
-	private Product product;
-	private OrderLine orderLine;
 	
-	
-	@EJB(name= "oLFacade")
-	private OrderLineFacade orderLineFacade;
-	
-	
-	public String createProduct() {
-		this.orderLine = orderLineFacade.createOrderLine(unitPrice, quantity, product);
-		return "orderLine"; 
-	}
-	
-	public String findOrderLine(Long id) {
-		this.orderLine = orderLineFacade.getOrderLine(id);
-		return "orderLine";
-	}
-
 }

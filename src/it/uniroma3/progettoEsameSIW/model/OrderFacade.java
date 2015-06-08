@@ -17,9 +17,6 @@ public class OrderFacade {
 		this.em.persist(o);
 		return o;
 	}
-<<<<<<< HEAD
-	
-=======
 
 	public boolean persistOrder(Order newOrder) {
 		try{
@@ -30,5 +27,5 @@ public class OrderFacade {
 			return false;
 		}
 	}
->>>>>>> branch 'master' of https://github.com/VAle512/progettoEsameSIW.git
+
 }

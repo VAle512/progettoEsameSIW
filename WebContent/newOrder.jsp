@@ -1,6 +1,6 @@
 <%@ taglib prefix="f"  uri="http://java.sun.com/jsf/core"%>
 <%@ taglib prefix="h"  uri="http://java.sun.com/jsf/html"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+ <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -31,25 +31,24 @@
         <h:commandLink action="#{orderController.findProduct}" value="#{product.name}">
 			<f:param name="id" value="#{product.id}" />
 		</h:commandLink></td>
-        <td>${product.code}</td>
+        <td>${product.code}</td>  
         <td>${product.price}</td>
         <td>${product.storageQuantity}</td>
-        <td>
-  <label for="sel1">Select Quantity:</label>
-  <select class="form-control" id="sel1">
-    <c:forEach var="i" begin="1" end="${product.storageQuantity}">
-	<option>${i}</option>
-</c:forEach>
-    
-    
-  </select>
-</td>
-<td><h:form>
-					<h:commandLink action="#{orderLineController.createOrderLines}"
-					<f:param name="unitPrice" value="#{product.price}" name="quantity" value="#{5}"name="product" value="#{product}" />
-						value="<button type="button" class="btn btn-success">Success</button>" />
-				</h:form></td>
-        
+        <td><div>Quantity: <h:inputText value="#{orderLineController.quantity}" 
+                     required="true"
+                     requiredMessage="Name is mandatory"
+                     id="name"/> <h:message for="name" />
+	</div> </td>
+	
+ <c:set var="orderLineController.unitPrice" value="${product.price}"/>
+ <c:set var="orderLineController.product" value="${product}"/>
+	
+  
+        <td> <div>
+
+<h:commandButton value="Submit"  action="#{orderLineController.createOrderLine}"/>
+
+</div> </td>
       </tr>
 		
 		

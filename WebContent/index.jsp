@@ -21,14 +21,11 @@
 					<h:commandLink action="#{orderController.createOrder}"
 						value="New Order" />
 				</h:form></li>
-<<<<<<< HEAD
-
-=======
-			<li><h:form>
+<li><h:form>
 					<h:commandLink action="newCustomer"
 						value="New Customer" />
 				</h:form></li>
->>>>>>> branch 'master' of https://github.com/VAle512/progettoEsameSIW.git
+
 		</ul>
 	</f:view>
 </body>
