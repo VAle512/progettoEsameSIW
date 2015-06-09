@@ -7,6 +7,8 @@ import it.uniroma3.progettoEsameSIW.model.Product;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
 
 @ManagedBean
 public class OrderLineController {
@@ -24,7 +26,10 @@ public class OrderLineController {
 	
 	
 	public String createOrderLine() {
-		this.orderLine = orderLineFacade.createOrderLine(unitPrice, quantity, productId);
+		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
+		Long orderId = (Long)request.getSession().getAttribute("newOrderId");
+		//Long orderId = new Long(1001);
+		this.orderLine = orderLineFacade.createOrderLine(unitPrice, quantity, productId,orderId);
 		return "orderLine"; 
 	}
 	

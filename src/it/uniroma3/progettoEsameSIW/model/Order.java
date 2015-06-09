@@ -2,6 +2,7 @@ package it.uniroma3.progettoEsameSIW.model;
 
 
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -28,7 +29,7 @@ public class Order {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@Column(nullable = false)
 	private Customer customer;
-	@OneToMany
+	@OneToMany(fetch = FetchType.EAGER)
 	private List<OrderLine> orderLines;
 	private Integer status;
 	
@@ -40,6 +41,7 @@ public class Order {
 		this.evasionDate = null;
 		this.customer = customer;
 		this.status = new Integer(1);
+		this.orderLines = new LinkedList<OrderLine>();
 	}
 
 	public Long getId() {

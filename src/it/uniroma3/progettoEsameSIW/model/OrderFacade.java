@@ -13,29 +13,11 @@ public class OrderFacade {
 	@PersistenceContext(unitName = "dbProgettoSIW-unit")
 	private EntityManager em;
 
-	public Order createOrder(Date openDate, Customer customer){
-		Order o = new Order(openDate, customer);
+	public Order createOrder(Date openDate, Long customerId){
+		Customer c = this.em.find(Customer.class, customerId);
+		Order o = new Order(openDate,c);
 		this.em.persist(o);
 		return o;
 	}
-
-
-	public boolean persistOrder(Order newOrder) {
-		try{
-			this.em.persist(newOrder);
-			return true;
-		}
-		catch(Exception e){
-			return false;
-		}
-	}
-
 	
-	public void persistOrder(Order newOrder, Long userId) {
-		Customer c = this.em.find(Customer.class, userId);
-		newOrder.setCustomer(c);
-		this.em.persist(newOrder);
-
-	}
-
 }

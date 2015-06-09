@@ -21,7 +21,6 @@
         <th>Code</th>
         <th>Price</th>
         <th>StorageQuantity</th>
-        <th>Quantity</th>
       </tr>
     </thead>
         <tbody>
@@ -34,23 +33,13 @@
         <td>${product.code}</td>  
         <td>${product.price}</td>
         <td>${product.storageQuantity}</td>
-        <td><div>Quantity: <h:inputText value="#{orderLineController.quantity}" 
-                     required="true"
-                     requiredMessage="Quantity is mandatory"
-                     id="quantity"/> <h:message for="quantity" />
-	</div> </td>
-	
-	<c:set var="orderLineController.unitPrice" value="${product.price}"/>
- <c:set var="orderLineController.productId" value="${product.id}"/>
-  
-        <td> <div>
-
-<h:commandButton value="Submit"  action="#{orderLineController.createOrderLine}"/>
-
-</div> </td>
+        <td><h:inputText value="#{orderLineController.quantity}" id ="quantity"/></td>
+      	<td>  <h:commandButton action="#{orderLineController.createOrderLine}" value="ORDER!">
+      	   	<f:param name="productId" value="#{product.id}" />
+      	   	<f:param name="unitPrice" value="#{product.price}" />
+      	   	<f:param name="quantity" value="#{orderLineController.quantity}"/>
+      	   </h:commandButton></td>
       </tr>
-		
-		
 	</c:forEach>
 	</tbody>
 </table>

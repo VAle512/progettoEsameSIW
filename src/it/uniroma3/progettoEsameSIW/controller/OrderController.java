@@ -38,29 +38,20 @@ public class OrderController {
 	@EJB(name = "pFacade")
 	private ProductFacade productFacade;
 
-
 	@EJB(name="cFacade")
 	private CustomerFacade f;
 
 	public String createOrder() {
 		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
 		this.setProducts(productFacade.getAllProducts());
-		Order newOrder = new Order(new Date(), null);
-		request.getSession().setAttribute("newOrder", newOrder);
+		Order newOrder = this.orderFacade.createOrder(new Date(), new Long(1));
+		request.getSession().setAttribute("newOrderId", newOrder.getId());
 		return "newOrder";
-	}
-	
-	public String endOrder(){
-		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
-		Order o = (Order)request.getSession().getAttribute("newOrder");
-		Long id = (Long)request.getSession().getAttribute("curretUserId");
-		this.orderFacade.persistOrder(o,id);
-		return "index";
 	}
 	
 	public String findProduct() {
 		this.product = productFacade.getProduct(id);
-		return "product";
+		return "newOrderLine";
 	}
 	
 	public Long getId() {

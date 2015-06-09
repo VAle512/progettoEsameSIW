@@ -10,9 +10,14 @@ public class OrderLineFacade {
 	@PersistenceContext(unitName = "dbProgettoSIW-unit")
 	private EntityManager em;
 	
-	public OrderLine createOrderLine(Double unitPrice, Integer quantity, Long productId)	{
-		Product p = this.em.find(Product.class, productId);
+	public OrderLine createOrderLine(Double unitPrice, Integer quantity, Long productId, Long orderId)	{
+		Order o = this.em.find(Order.class, orderId);
+		/*TODO 
+		 * sistemare join con prodotto
+		 */
+		Product p = this.em.find(Product.class, new Long(201));
 		OrderLine ol = new OrderLine(unitPrice, quantity, p);
+		o.getOrderLines().add(ol);
 		this.em.persist(ol);
 		return ol;	
 	}
