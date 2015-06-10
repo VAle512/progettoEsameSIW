@@ -35,9 +35,9 @@
         <td>${product.storageQuantity}</td>
         <td><h:inputText value="#{orderLineController.quantity}" id ="quantity"/></td>
       	<td>  <h:commandButton action="#{orderLineController.createOrderLine}" value="ORDER!">
-      	   	<f:param name="productId" value="#{product.id}" />
       	   	<f:param name="unitPrice" value="#{product.price}" />
       	   	<f:param name="quantity" value="#{orderLineController.quantity}"/>
+      	   	<f:param name="productId" value="#{product.id}" />
       	   </h:commandButton></td>
       </tr>
 	</c:forEach>

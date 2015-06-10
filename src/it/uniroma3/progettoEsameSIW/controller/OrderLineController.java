@@ -15,8 +15,11 @@ public class OrderLineController {
 	
 	@ManagedProperty(value="#{param.id}")
 	private Long id;
+	@ManagedProperty(value="#{param.unitPrice}")
 	private Double unitPrice;
+	@ManagedProperty(value="#{param.quantity}")
 	private Integer quantity;
+	@ManagedProperty(value="#{param.productId}")
 	private Long productId;
 	private OrderLine orderLine;
 	
@@ -29,7 +32,7 @@ public class OrderLineController {
 		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
 		Long orderId = (Long)request.getSession().getAttribute("newOrderId");
 		//Long orderId = new Long(1001);
-		this.orderLine = orderLineFacade.createOrderLine(unitPrice, quantity, productId,orderId);
+		this.orderLine = orderLineFacade.createOrderLine(unitPrice, quantity, productId, orderId);
 		return "orderLine"; 
 	}
 	

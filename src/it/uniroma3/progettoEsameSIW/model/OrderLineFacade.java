@@ -15,7 +15,7 @@ public class OrderLineFacade {
 		/*TODO 
 		 * sistemare join con prodotto
 		 */
-		Product p = this.em.find(Product.class, new Long(201));
+		Product p = this.em.find(Product.class, productId);
 		OrderLine ol = new OrderLine(unitPrice, quantity, p);
 		o.getOrderLines().add(ol);
 		this.em.persist(ol);
