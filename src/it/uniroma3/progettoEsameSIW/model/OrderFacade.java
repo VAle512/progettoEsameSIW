@@ -20,4 +20,9 @@ public class OrderFacade {
 		return o;
 	}
 	
+	public Order getOrder(Long id){
+		Order o = this.em.find(Order.class, id);
+		return o;
+	}
+	
 }

@@ -31,7 +31,7 @@ public class OrderController {
 	private Integer status;
 	private List<Product> products;
 	private Product product;
-
+    
 	@EJB(name="oFacade")
 	private OrderFacade orderFacade;
 
@@ -40,6 +40,7 @@ public class OrderController {
 
 	@EJB(name="cFacade")
 	private CustomerFacade f;
+	
 
 	public String createOrder() {
 		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
@@ -47,6 +48,14 @@ public class OrderController {
 		Order newOrder = this.orderFacade.createOrder(new Date(), new Long(1));
 		request.getSession().setAttribute("newOrderId", newOrder.getId());
 		return "newOrder";
+	}
+	
+	public String orderRecap(){
+		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
+		Long orderId = (Long)request.getSession().getAttribute("newOrderId");
+		Order o = this.orderFacade.getOrder(orderId);
+		this.setOrder(o);
+		return "orderRecap";
 	}
 	
 	public String findProduct() {
