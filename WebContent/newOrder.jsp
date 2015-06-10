@@ -1,5 +1,6 @@
 <%@ taglib prefix="f"  uri="http://java.sun.com/jsf/core"%>
 <%@ taglib prefix="h"  uri="http://java.sun.com/jsf/html"%>
+
  <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -12,7 +13,7 @@
 <body>
 <f:view>
 <h1>New Order</h1>
-<h:form>
+
 <div class="container">
 <table class="table table-striped">
     <thead>
@@ -21,10 +22,13 @@
         <th>Code</th>
         <th>Price</th>
         <th>StorageQuantity</th>
+        <th>Quantity:</th>
       </tr>
     </thead>
         <tbody>
+        
 	<c:forEach var="product" items="#{orderController.products}">
+	<h:form>
 		<tr>
         <td>
         <h:commandLink action="#{orderController.findProduct}" value="#{product.name}">
@@ -34,17 +38,18 @@
         <td>${product.price}</td>
         <td>${product.storageQuantity}</td>
         <td><h:inputText value="#{orderLineController.quantity}" id ="quantity"/></td>
-      	<td>  <h:commandButton action="#{orderLineController.createOrderLine}" value="ORDER!">
+      	<td> <h:commandButton action="#{orderLineController.createOrderLine}" value="ORDER!">
       	   	<f:param name="unitPrice" value="#{product.price}" />
-      	   	<f:param name="quantity" value="#{orderLineController.quantity}"/>
       	   	<f:param name="productId" value="#{product.id}" />
       	   </h:commandButton></td>
       </tr>
+      </h:form>
 	</c:forEach>
+	
 	</tbody>
 </table>
 </div>
-</h:form>
+
 </f:view>
 
 </body>

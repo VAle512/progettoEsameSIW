@@ -12,9 +12,6 @@ public class OrderLineFacade {
 	
 	public OrderLine createOrderLine(Double unitPrice, Integer quantity, Long productId, Long orderId)	{
 		Order o = this.em.find(Order.class, orderId);
-		/*TODO 
-		 * sistemare join con prodotto
-		 */
 		Product p = this.em.find(Product.class, productId);
 		OrderLine ol = new OrderLine(unitPrice, quantity, p);
 		o.getOrderLines().add(ol);
