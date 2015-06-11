@@ -46,7 +46,10 @@ public class OrderController {
 	public String createOrder() {
 		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
 		this.setProducts(productFacade.getAllProducts());
-		Order newOrder = this.orderFacade.createOrder(new Date(), new Long(1));
+		/*
+		 * TODO far prendere id utente dalla sessione
+		 */
+		Order newOrder = this.orderFacade.createOrder(new Date(), new Long(7551));
 		request.getSession().setAttribute("newOrderId", newOrder.getId());
 		return "newOrder";
 	}

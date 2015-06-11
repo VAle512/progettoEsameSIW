@@ -48,7 +48,7 @@ public class CustomerController {
 			birthDate = format.parse(this.birthDate);
 		} catch (ParseException e) {
 			FacesContext facesContext = FacesContext.getCurrentInstance();
-			facesContext.addMessage("registrationForm:birthDate", new FacesMessage("Date format must be the following dd/mm/yyyy"));
+			facesContext.addMessage("orderForm:birthDate", new FacesMessage("Date format must be the following dd/mm/yyyy"));
 			return null;
 		}
 		Address address = new Address(street, city, state, zipcode, country);

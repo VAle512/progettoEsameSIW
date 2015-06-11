@@ -47,7 +47,6 @@ public class Customer {
 		this.password = password;
 	}
 
-
 	public Long getId() {
 		return id;
 	}
@@ -57,41 +56,33 @@ public class Customer {
 		this.id = id;
 	}
 
-
 	public String getName() {
 		return name;
 	}
-
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
-
 	public String getSurname() {
 		return surname;
 	}
-
 
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
 
-
 	public Date getBirthDate() {
 		return birthDate;
 	}
-
 
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
 
-
 	public Date getRegistrationDate() {
 		return registrationDate;
 	}
-
 
 	public void setRegistrationDate(Date registrationDate) {
 		this.registrationDate = registrationDate;
@@ -100,7 +91,6 @@ public class Customer {
 	public String getEmail() {
 		return email;
 	}
-
 
 	public void setEmail(String email) {
 		this.email = email;
@@ -111,14 +101,7 @@ public class Customer {
 		return orders;
 	}
 
-
 	public void setOrders(List<Order> orders) {
 		this.orders = orders;
 	}
-	
-	
-	
-	
-	
-
 }
