@@ -32,6 +32,7 @@ public class OrderController {
 	private List<Product> products;
 	private Product product;
 	private Double orderTot;
+	private List<Order> orders;
     
 	@EJB(name="oFacade")
 	private OrderFacade orderFacade;
@@ -52,6 +53,14 @@ public class OrderController {
 		Order newOrder = this.orderFacade.createOrder(new Date(), new Long(7551));
 		request.getSession().setAttribute("newOrderId", newOrder.getId());
 		return "newOrder";
+	}
+	
+	public String listOrders() {
+		/*
+		 * TODO far prendere id utente dalla sessione
+		 */
+		this.orders = this.orderFacade.getCustomerOrders(new Long(7551));
+		return "customerOrders";
 	}
 	
 	public String orderRecap(){
@@ -171,5 +180,13 @@ public class OrderController {
 
 	public void setOrderTot(Double orderTot) {
 		this.orderTot = orderTot;
+	}
+
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
 	}
 }

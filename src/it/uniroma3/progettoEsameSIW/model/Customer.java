@@ -2,9 +2,11 @@ package it.uniroma3.progettoEsameSIW.model;
 
 import java.util.Date;
 import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,7 +26,7 @@ public class Customer {
 	private Date birthDate;
 	private Date registrationDate;
 	private String email;
-	@OneToMany
+	@OneToMany(fetch = FetchType.EAGER)
 	private List<Order> orders;
 	@OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
 	private Address address;
