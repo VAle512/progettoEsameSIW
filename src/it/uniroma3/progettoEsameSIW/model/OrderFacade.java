@@ -24,5 +24,12 @@ public class OrderFacade {
 		Order o = this.em.find(Order.class, id);
 		return o;
 	}
+
+	public void closeOrder(Long id) {
+		Order o = this.em.find(Order.class, id);
+		o.setStatus(new Integer(2));
+		o.setCloseDate(new Date());
+		this.em.merge(o);
+	}
 	
 }

@@ -7,14 +7,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <link rel="stylesheet"
 	href="/progettoEsameSIW/bootstrap/css/bootstrap.min.css">
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/progettoEsameSIW/bootsrap/js/bootstrap.min.js"></script>
+<script src="/progettoEsameSIW/bootsrap/js/bootstrap.min.js"></script>
 <title>New Order</title>
 </head>
 <body>
 	<f:view>
 		<h1>New Order</h1>
-
 		<div class="container">
 			<table class="table table-striped">
 				<thead>

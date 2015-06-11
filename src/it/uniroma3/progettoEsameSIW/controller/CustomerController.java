@@ -41,7 +41,7 @@ public class CustomerController {
 	@EJB(name="cFacade")
 	private CustomerFacade customerFacade;
 	
-	public String CreateCustomer(){
+	public String createCustomer(){
 		SimpleDateFormat format = new SimpleDateFormat("dd/mm/yyy");
 		Date birthDate = null;
 		try {

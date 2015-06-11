@@ -31,6 +31,7 @@ public class OrderController {
 	private Integer status;
 	private List<Product> products;
 	private Product product;
+	private Double orderTot;
     
 	@EJB(name="oFacade")
 	private OrderFacade orderFacade;
@@ -54,13 +55,23 @@ public class OrderController {
 		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
 		Long orderId = (Long)request.getSession().getAttribute("newOrderId");
 		Order o = this.orderFacade.getOrder(orderId);
+		this.orderTot = Double.valueOf(0);
+		for(OrderLine ol:o.getOrderLines())
+			this.orderTot = this.orderTot + (ol.getUnitPrice()*ol.getQuantity());
 		this.setOrder(o);
 		return "orderRecap";
 	}
 	
+	public String closeOrder(){
+		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
+		Long orderId = (Long)request.getSession().getAttribute("newOrderId");
+		this.orderFacade.closeOrder(orderId);
+		return "index";
+	}
+	
 	public String findProduct() {
 		this.product = productFacade.getProduct(id);
-		return "newOrderLine";
+		return null;
 	}
 	
 	public Long getId() {
@@ -151,4 +162,11 @@ public class OrderController {
 		this.product = product;
 	}
 
+	public Double getOrderTot() {
+		return orderTot;
+	}
+
+	public void setOrderTot(Double orderTot) {
+		this.orderTot = orderTot;
+	}
 }

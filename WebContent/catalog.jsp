@@ -45,6 +45,3 @@
 	</f:view>
 </body>
 </html>
-
-
-
