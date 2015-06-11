@@ -24,6 +24,10 @@
 				<li><h:form>
 					<h:commandLink action="newCustomer"
 						value="New Customer" />
+</h:form></li>
+			<li><h:form>
+					<h:commandLink action="newCustomer" value="New Customer" />
+
 				</h:form></li>
 <li><h:form>
 					<h:commandLink action="login"

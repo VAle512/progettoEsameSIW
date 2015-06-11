@@ -9,8 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <link rel="stylesheet"
 	href="/progettoEsameSIW/bootstrap/css/bootstrap.min.css">
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/progettoEsameSIW/bootsrap/js/bootstrap.min.js"></script>
+<script src="/progettoEsameSIW/bootsrap/js/bootstrap.min.js">></script>
 <title>Recap</title>
 </head>
 <body>
@@ -35,6 +34,16 @@
 					</c:forEach>
 				</tbody>
 			</table>
+		</div>
+		<div>
+			<div class="panel panel-success">
+				<div class="panel-heading">Total</div>
+				<div class="panel-body">${orderController.orderTot}</div>
+			</div>
+			<h:form>
+				<h:commandButton action="#{orderController.closeOrder}" value="END">
+				</h:commandButton>
+			</h:form>
 		</div>
 	</f:view>
 </body>

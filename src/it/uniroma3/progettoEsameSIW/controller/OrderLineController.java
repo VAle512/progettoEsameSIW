@@ -31,7 +31,7 @@ public class OrderLineController {
 		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
 		Long orderId = (Long)request.getSession().getAttribute("newOrderId");
 		this.orderLine = orderLineFacade.createOrderLine(unitPrice, quantity, productId, orderId);
-		return "orderLine"; 
+		return "productAdded"; 
 	}
 	
 	public Long getProductId() {
@@ -44,7 +44,7 @@ public class OrderLineController {
 
 	public String findOrderLine(Long id) {
 		this.orderLine = orderLineFacade.getOrderLine(id);
-		return "orderLine";
+		return null;
 	}
 
 	
