@@ -21,9 +21,13 @@
 					<h:commandLink action="#{orderController.createOrder}"
 						value="New Order" />
 				</h:form></li>
-<li><h:form>
+				<li><h:form>
 					<h:commandLink action="newCustomer"
 						value="New Customer" />
+				</h:form></li>
+<li><h:form>
+					<h:commandLink action="login"
+						value="Login" />
 				</h:form></li>
 
 		</ul>

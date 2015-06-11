@@ -80,7 +80,7 @@
 			</div>
 			<div>
 				<h:commandButton value="Register"
-					action="#{customerController.CreateCustomer}" />
+					action="#{customerController.createCustomer}" />
 			</div>
 		</h:form>
 	</f:view>

@@ -41,7 +41,7 @@ public class CustomerController {
 	@EJB(name="cFacade")
 	private CustomerFacade customerFacade;
 	
-	public String CreateCustomer(){
+	public String createCustomer(){
 		SimpleDateFormat format = new SimpleDateFormat("dd/mm/yyy");
 		Date birthDate = null;
 		try {
@@ -56,6 +56,15 @@ public class CustomerController {
 		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
 		request.getSession().setAttribute("currentUserId",c.getId());
 		return "index";
+	}
+	
+	
+	public String checkLogin()	{
+		return "orderLine";
+	}
+	
+	public String helpToLogin()	{
+		return "help";
 	}
 
 	public Long getId() {
