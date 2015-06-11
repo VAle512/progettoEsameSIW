@@ -66,12 +66,6 @@
 				<h:message for="country" />
 			</div>
 			<div>
-				User ID:
-				<h:inputText value="#{customerController.userId}" required="true"
-					requiredMessage="User ID is mandatory" id="userId" />
-				<h:message for="userId" />
-			</div>
-			<div>
 				Password:
 				<h:inputSecret value="#{customerController.password}"
 					required="true" requiredMessage="Password is mandatory"

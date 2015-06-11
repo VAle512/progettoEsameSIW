@@ -2,18 +2,21 @@ package it.uniroma3.progettoEsameSIW.model;
 
 import java.util.Date;
 import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+@NamedQuery(name= "allCustomers", query = "SELECT c FROM Customer c")
 @Entity
 public class Customer {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -23,30 +26,44 @@ public class Customer {
 	private String surname;
 	private Date birthDate;
 	private Date registrationDate;
+	@Column(nullable = false, unique = true)
 	private String email;
 	@OneToMany
 	private List<Order> orders;
 	@OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
 	private Address address;
-	@Column(nullable = false, unique = true)
-	private String userId;
 	@Column(nullable = false)
 	private String password;
-	
+
 	public Customer() {}
-	
+
 	public Customer(String name, String surname, Date birthDate,
-			Date registrationDate, Address address, String email, String userID, String password) {
+			Date registrationDate, Address address, String email, String password) {
 		this.name = name;
 		this.surname = surname;
 		this.birthDate = birthDate;
 		this.registrationDate = registrationDate;
 		this.email = email;
 		this.address = address;
-		this.userId = userID;
 		this.password = password;
 	}
 
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
 	public Long getId() {
 		return id;
@@ -98,7 +115,7 @@ public class Customer {
 	}
 
 	public String getEmail() {
-		return email;
+		return this.email;
 	}
 
 
@@ -115,10 +132,18 @@ public class Customer {
 	public void setOrders(List<Order> orders) {
 		this.orders = orders;
 	}
-	
-	
-	
-	
-	
+
+	public Customer checkPassword(String password2) throws InvalidPasswordException {
+		if( this.password.equals(password2))
+			return this;
+		else {
+			throw new InvalidPasswordException();
+		}
+	}
+
+
+
+
+
 
 }

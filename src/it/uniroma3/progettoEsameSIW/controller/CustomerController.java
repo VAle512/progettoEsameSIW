@@ -3,6 +3,8 @@ package it.uniroma3.progettoEsameSIW.controller;
 import it.uniroma3.progettoEsameSIW.model.Address;
 import it.uniroma3.progettoEsameSIW.model.Customer;
 import it.uniroma3.progettoEsameSIW.model.CustomerFacade;
+import it.uniroma3.progettoEsameSIW.model.CustomerNotFoundException;
+import it.uniroma3.progettoEsameSIW.model.InvalidPasswordException;
 import it.uniroma3.progettoEsameSIW.model.Order;
 
 import java.text.ParseException;
@@ -11,10 +13,12 @@ import java.util.Date;
 import java.util.List;
 
 import javax.ejb.EJB;
+import javax.ejb.EJBTransactionRolledbackException;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.context.FacesContext;
+import javax.persistence.NoResultException;
 import javax.servlet.http.HttpServletRequest;
 
 @ManagedBean
@@ -44,6 +48,7 @@ public class CustomerController {
 	public String createCustomer(){
 		SimpleDateFormat format = new SimpleDateFormat("dd/mm/yyy");
 		Date birthDate = null;
+		Customer c = null;
 		try {
 			birthDate = format.parse(this.birthDate);
 		} catch (ParseException e) {
@@ -52,15 +57,28 @@ public class CustomerController {
 			return null;
 		}
 		Address address = new Address(street, city, state, zipcode, country);
-		Customer c = this.customerFacade.createCustomer(name, surname, birthDate, new Date(), address, email, userId, password);
+		try {
+		c = this.customerFacade.createCustomer(name, surname, birthDate, new Date(), address, email, userId, password); }
+		catch (EJBTransactionRolledbackException e)	{
+			return "existEmail";
+		}
 		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
 		request.getSession().setAttribute("currentUserId",c.getId());
 		return "index";
 	}
 	
 	
-	public String checkLogin()	{
-		return "orderLine";
+	public String checkLogin() throws Exception	{
+//		if (this.email.equals(this.customerFacade.getCustomerByEmail(this.email).getEmail()) && this.password.equals(this.customerFacade.getCustomerByEmail(this.email).getPassword()))
+//				return "orderLine";
+		try {
+		Customer c = this.customerFacade.getCustomerByEmail(this.email); 
+		c.checkPassword(this.password); }
+		catch (NoResultException | InvalidPasswordException | CustomerNotFoundException  e1 )	{
+			return "loginError";
+			
+		}
+		return "index";
 	}
 	
 	public String helpToLogin()	{
