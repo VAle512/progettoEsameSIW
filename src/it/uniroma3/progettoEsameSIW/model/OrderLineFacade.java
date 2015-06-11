@@ -10,9 +10,11 @@ public class OrderLineFacade {
 	@PersistenceContext(unitName = "dbProgettoSIW-unit")
 	private EntityManager em;
 	
-	public OrderLine createOrderLine(Double unitPrice, Integer quantity, Long productId, Long orderId)	{
+	public OrderLine createOrderLine(Double unitPrice, Integer quantity, Long productId, Long orderId) throws InvalidQuantityException	{
 		Order o = this.em.find(Order.class, orderId);
 		Product p = this.em.find(Product.class, productId);
+		if(p.getStorageQuantity() < quantity)
+			throw new InvalidQuantityException();
 		OrderLine ol = new OrderLine(unitPrice, quantity, p);
 		o.getOrderLines().add(ol);
 		this.em.persist(ol);

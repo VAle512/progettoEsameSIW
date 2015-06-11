@@ -25,7 +25,6 @@
 					</tr>
 				</thead>
 				<tbody>
-
 					<c:forEach var="product" items="#{orderController.products}">
 						<h:form>
 							<tr>

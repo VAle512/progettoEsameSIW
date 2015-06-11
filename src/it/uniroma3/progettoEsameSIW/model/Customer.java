@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,7 +29,7 @@ public class Customer {
 	private Date registrationDate;
 	@Column(nullable = false, unique = true)
 	private String email;
-	@OneToMany
+	@OneToMany(fetch = FetchType.EAGER)
 	private List<Order> orders;
 	@OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
 	private Address address;
@@ -64,7 +65,7 @@ public class Customer {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
+	
 	public Long getId() {
 		return id;
 	}
@@ -74,41 +75,33 @@ public class Customer {
 		this.id = id;
 	}
 
-
 	public String getName() {
 		return name;
 	}
-
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
-
 	public String getSurname() {
 		return surname;
 	}
-
 
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
 
-
 	public Date getBirthDate() {
 		return birthDate;
 	}
-
 
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
 
-
 	public Date getRegistrationDate() {
 		return registrationDate;
 	}
-
 
 	public void setRegistrationDate(Date registrationDate) {
 		this.registrationDate = registrationDate;
@@ -117,7 +110,6 @@ public class Customer {
 	public String getEmail() {
 		return this.email;
 	}
-
 
 	public void setEmail(String email) {
 		this.email = email;
@@ -128,10 +120,10 @@ public class Customer {
 		return orders;
 	}
 
-
 	public void setOrders(List<Order> orders) {
 		this.orders = orders;
 	}
+
 
 	public Customer checkPassword(String password2) throws InvalidPasswordException {
 		if( this.password.equals(password2))
@@ -140,10 +132,4 @@ public class Customer {
 			throw new InvalidPasswordException();
 		}
 	}
-
-
-
-
-
-
 }

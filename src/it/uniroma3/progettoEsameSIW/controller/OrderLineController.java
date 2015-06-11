@@ -1,9 +1,11 @@
 package it.uniroma3.progettoEsameSIW.controller;
 
+import it.uniroma3.progettoEsameSIW.model.InvalidQuantityException;
 import it.uniroma3.progettoEsameSIW.model.OrderLine;
 import it.uniroma3.progettoEsameSIW.model.OrderLineFacade;
 
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.context.FacesContext;
@@ -30,7 +32,13 @@ public class OrderLineController {
 	public String createOrderLine() {
 		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
 		Long orderId = (Long)request.getSession().getAttribute("newOrderId");
-		this.orderLine = orderLineFacade.createOrderLine(unitPrice, quantity, productId, orderId);
+		try {
+			this.orderLine = orderLineFacade.createOrderLine(unitPrice, quantity, productId, orderId);
+		} catch (InvalidQuantityException e) {
+			FacesContext facesContext = FacesContext.getCurrentInstance();
+			facesContext.addMessage("registrationForm:quantity", new FacesMessage("You have selected a quantity for your order bigger than the available. Please try again with a different one!"));
+			return null;
+		}
 		return "productAdded"; 
 	}
 	
@@ -46,8 +54,6 @@ public class OrderLineController {
 		this.orderLine = orderLineFacade.getOrderLine(id);
 		return null;
 	}
-
-	
 	
 	public Long getId() {
 		return id;
@@ -79,6 +85,5 @@ public class OrderLineController {
 
 	public void setOrderLine(OrderLine orderLine) {
 		this.orderLine = orderLine;
-	}
-	
+	}	
 }
