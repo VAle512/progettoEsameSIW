@@ -108,7 +108,7 @@ public class Customer {
 	}
 
 	public String getEmail() {
-		return this.email;
+		return email;
 	}
 
 	public void setEmail(String email) {
@@ -132,4 +132,5 @@ public class Customer {
 			throw new InvalidPasswordException();
 		}
 	}
+
 }

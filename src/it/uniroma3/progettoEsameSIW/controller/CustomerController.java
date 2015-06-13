@@ -69,16 +69,15 @@ public class CustomerController {
 	
 	
 	public String checkLogin() throws Exception	{
-//		if (this.email.equals(this.customerFacade.getCustomerByEmail(this.email).getEmail()) && this.password.equals(this.customerFacade.getCustomerByEmail(this.email).getPassword()))
-//				return "orderLine";
-		try {
+		try { 
 		Customer c = this.customerFacade.getCustomerByEmail(this.email); 
-		c.checkPassword(this.password); }
+		c.checkPassword(this.password); 
+		}
 		catch (NoResultException | InvalidPasswordException | CustomerNotFoundException  e1 )	{
 			return "loginError";
 			
 		}
-		return "index";
+		return "indexNoLogin";
 	}
 	
 	public String helpToLogin()	{
