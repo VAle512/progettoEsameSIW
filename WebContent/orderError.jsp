@@ -1,6 +1,6 @@
 <%@ taglib prefix="f" uri="http://java.sun.com/jsf/core"%>
 <%@ taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,17 +8,14 @@
 <link rel="stylesheet"
 	href="/progettoEsameSIW/bootstrap/css/bootstrap.min.css">
 <script src="/progettoEsameSIW/bootsrap/js/bootstrap.min.js"></script>
-<title>Insert complete</title>
+<title>Error</title>
 </head>
 <body>
-	<h1>Prodotto inserito correttamente!</h1>
 	<f:view>
-		<h:form>
-			<h:commandButton action="#{orderController.orderRecap}" value="Review & close">
-			</h:commandButton>
-		</h:form>
-		<input type="button" value="Back to the shop!"
-			onclick="history.back()" />
+		<div>The quantity you are trying to order
+			(${orderLineController.quantity}), is bigger than the quantity
+			available in store. Please, chose a different amount!</div>
+			<input type = "button" value = "Back to the shop!" onclick= "history.back()"/>
 	</f:view>
 </body>
 </html>

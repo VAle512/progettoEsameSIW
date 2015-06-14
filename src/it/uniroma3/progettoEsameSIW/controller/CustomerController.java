@@ -41,10 +41,10 @@ public class CustomerController {
 	private String state;
 	private String zipcode;
 	private String country;
-	
+
 	@EJB(name="cFacade")
 	private CustomerFacade customerFacade;
-	
+
 	public String createCustomer(){
 		SimpleDateFormat format = new SimpleDateFormat("dd/mm/yyy");
 		Date birthDate = null;
@@ -58,28 +58,28 @@ public class CustomerController {
 		}
 		Address address = new Address(street, city, state, zipcode, country);
 		try {
-		c = this.customerFacade.createCustomer(name, surname, birthDate, new Date(), address, email, userId, password); }
+			c = this.customerFacade.createCustomer(name, surname, birthDate, new Date(), address, email, userId, password); }
 		catch (EJBTransactionRolledbackException e)	{
 			return "existEmail";
 		}
-		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
-		request.getSession().setAttribute("currentUserId",c.getId());
 		return "index";
 	}
-	
-	
+
+
 	public String checkLogin() throws Exception	{
+		Customer c = null;
 		try { 
-		Customer c = this.customerFacade.getCustomerByEmail(this.email); 
-		c.checkPassword(this.password); 
+			c = this.customerFacade.getCustomerByEmail(this.email); 
+			c.checkPassword(this.password); 
 		}
 		catch (NoResultException | InvalidPasswordException | CustomerNotFoundException  e1 )	{
 			return "loginError";
-			
 		}
+		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
+		request.getSession().setAttribute("currentUserId",c.getId());
 		return "indexNoLogin";
 	}
-	
+
 	public String helpToLogin()	{
 		return "help";
 	}

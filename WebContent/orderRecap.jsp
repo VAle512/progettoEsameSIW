@@ -49,9 +49,10 @@
 				<div class="panel-body">${orderController.orderTot}</div>
 			</div>
 			<h:form>
-				<h:commandButton action="#{orderController.closeOrder}" value="END">
+				<h:commandButton action="#{orderController.closeOrder}" value="Close your order!">
 				</h:commandButton>
 			</h:form>
+			<input type = "button" value = "Back!" onclick= "history.back()"/>
 		</div>
 	</f:view>
 </body>

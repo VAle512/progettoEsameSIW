@@ -47,10 +47,8 @@ public class OrderController {
 	public String createOrder() {
 		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
 		this.setProducts(productFacade.getAllProducts());
-		/*
-		 * TODO far prendere id utente dalla sessione
-		 */
-		Order newOrder = this.orderFacade.createOrder(new Date(), new Long(8701));
+		Long customerId = this.retriveCurrentUserId();
+		Order newOrder = this.orderFacade.createOrder(new Date(), customerId);
 		request.getSession().setAttribute("newOrderId", newOrder.getId());
 		return "newOrder";
 	}
@@ -62,10 +60,8 @@ public class OrderController {
 	}
 
 	public String listOrders() {
-		/*
-		 * TODO far prendere id utente dalla sessione
-		 */
-		this.setOrders(this.orderFacade.getCustomerOrders(new Long(8701)));
+		Long customerId = this.retriveCurrentUserId();
+		this.setOrders(this.orderFacade.getCustomerOrders(customerId));
 		return "customerOrders";
 	}
 
@@ -93,6 +89,11 @@ public class OrderController {
 		for(OrderLine ol:o.getOrderLines())
 			total = total + (ol.getUnitPrice()*ol.getQuantity());
 		return total;
+	}
+
+	private Long retriveCurrentUserId(){
+		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
+		return (Long)request.getSession().getAttribute("currentUserId");
 	}
 
 	public Long getId() {

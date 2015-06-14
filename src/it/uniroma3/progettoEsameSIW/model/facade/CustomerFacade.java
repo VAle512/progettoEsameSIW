@@ -40,17 +40,6 @@ public class CustomerFacade {
 		throw new CustomerNotFoundException();
 	}
 	
-	/*TODO a che serve?*/
-//	public boolean sameString(String s1, String s2)	{
-//		boolean t = true;
-//		int i=0;
-//		while(i<=s1.length() && t)	{
-//			if (s1.charAt(i)!=s2.charAt(i))
-//				t = false;
-//		}
-//		return t;
-//	}
-	
 	public List<Customer> getCustomers() 	{
 		Query query = this.em.createQuery("SELECT c FROM Customer c");
 		List<Customer> customers = query.getResultList();

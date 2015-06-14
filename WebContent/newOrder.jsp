@@ -28,7 +28,8 @@
 					<c:forEach var="product" items="#{orderController.products}">
 						<h:form>
 							<tr>
-								<td><h:commandLink action="#{productController.findProduct}"
+								<td><h:commandLink
+										action="#{productController.findProduct}"
 										value="#{product.name}">
 										<f:param name="id" value="#{product.id}" />
 									</h:commandLink></td>
@@ -51,11 +52,11 @@
 		<h:form>
 			<div>
 				<h:commandButton action="#{orderController.orderRecap}"
-					value="RECAP">
+					value="Review & close">
 				</h:commandButton>
 			</div>
+			<input type="button" value="Back" onclick="history.back()" />
 		</h:form>
 	</f:view>
 </body>
 </html>
-
