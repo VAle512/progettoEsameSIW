@@ -6,6 +6,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 @Stateless(name = "oFacade")
 public class OrderFacade {
@@ -33,7 +34,9 @@ public class OrderFacade {
 	}
 
 	public List<Order> getCustomerOrders(Long id) {
-		Customer c = this.em.find(Customer.class,id);
-		return c.getOrders();
+		Query q = this.em.createQuery("SELECT o FROM Order o WHERE o.customer.id = :id");
+		q.setParameter("id",id);
+		List<Order> l = q.getResultList();
+		return l;
 	}
 }
