@@ -10,11 +10,10 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-@NamedQuery(name= "allCustomers", query = "SELECT c FROM Customer c")
+
 @Entity
 public class Customer {
 

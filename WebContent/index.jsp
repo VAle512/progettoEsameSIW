@@ -18,26 +18,7 @@
 					<h:commandLink action="#{productController.getCatalog}"
 						value="Get Catalog" />
 				</h:form></li>
-			<li><h:form>
-					<h:commandLink action="#{orderController.createOrder}"
-						value="New Order" />
-				</h:form></li>
-
-			<li><h:form>
-					<h:commandLink action="newCustomer" value="New Customer" />
-				</h:form></li>
-
-			<li><h:form>
-					<h:commandLink action="login" value="Login" />
-				</h:form></li>
-			<li><h:form>
-					<h:commandLink action="newCustomer" value="New Customer" />
-				</h:form></li>
-
-			<li><h:form>
-					<h:commandLink action="login" value="Login" />
-
-				</h:form></li>
+		
 			<li><h:form>
 					<h:commandLink action="newCustomer" value="New Customer" />
 				</h:form></li>
@@ -46,10 +27,7 @@
 					<h:commandLink action="login" value="Login" />
 				</h:form></li>
 
-			<li><h:form>
-					<h:commandLink action="#{orderController.listOrders}"
-						value="My Orders" />
-				</h:form></li>
+			
 		</ul>
 		<h:form>
 			<div id="login-overlay" class="modal-dialog">

@@ -47,7 +47,7 @@ public class AdministratorController {
 			return "loginError2";
 
 		}
-		return "indexNoLogin";
+		return "indexAdministrator";
 	}
 
 
