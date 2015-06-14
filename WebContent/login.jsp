@@ -26,12 +26,12 @@
                   <div class="col-xs-6">
                       <div class="well">
                               <div class="form-group">
-                                  <label for="username" class="control-label">Username</label>
-                                  <h:inputText value="#{customerController.email}" required="true"
+                                  <label for="username" class="control-label">Email    </label>
+                                  <div><h:inputText value="#{customerController.email}" required="true"
 					requiredMessage="Email is mandatory" id="email" />
 				<h:message for="email" />
                                  
-                                  <span class="help-block"></span>
+                                  <span class="help-block"></span> </div>
                               </div>
                               <div class="form-group">
                                   <label for="password" class="control-label">Password</label>

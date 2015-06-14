@@ -80,7 +80,7 @@ public class OrderController {
 	public String closeOrder(){
 		Long orderId = retriveNewOrderId();
 		this.orderFacade.closeOrder(orderId);
-		return "index";
+		return "indexNoLogin";
 	}
 
 	private Long retriveNewOrderId(){
