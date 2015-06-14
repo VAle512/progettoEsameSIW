@@ -28,7 +28,7 @@
 					<c:forEach var="product" items="#{orderController.products}">
 						<h:form>
 							<tr>
-								<td><h:commandLink action="#{orderController.findProduct}"
+								<td><h:commandLink action="#{productController.findProduct}"
 										value="#{product.name}">
 										<f:param name="id" value="#{product.id}" />
 									</h:commandLink></td>

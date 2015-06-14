@@ -13,33 +13,37 @@
 <body>
 	<f:view>
 		<h1>My orders</h1>
-		<div class="container">
-			<table class="table table-striped">
-				<thead>
-					<tr>
-						<th>ID</th>
-						<th>Open Date</th>
-						<th>Close Date</th>
-						<th>Evasion Date</th>
-						<th>Status</th>
-						<th>Products</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach var="order" items="#{orderController.orders}">
-						<h:form>
+		<h:form>
+			<div class="container">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Open Date</th>
+							<th>Close Date</th>
+							<th>Evasion Date</th>
+							<th>Status</th>
+							<th>Products</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="order" items="#{orderController.orders}">
 							<tr>
 								<td>${order.id}</td>
 								<td>${order.openDate}</td>
 								<td>${order.closeDate}</td>
 								<td>${order.evasionDate}</td>
 								<td>${order.status}</td>
-								<td>PRODOTTI!</td>
-						</h:form>
-					</c:forEach>
-				</tbody>
-			</table>
-		</div>
+								<td><h:commandButton action="#{orderController.findOrder}"
+										value="More details">
+										<f:param name="id" value="#{order.id}" />
+									</h:commandButton></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</div>
+		</h:form>
 	</f:view>
 </body>
 </html>

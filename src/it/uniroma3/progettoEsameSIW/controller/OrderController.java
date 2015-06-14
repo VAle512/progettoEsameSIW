@@ -33,7 +33,7 @@ public class OrderController {
 	private Product product;
 	private Double orderTot;
 	private List<Order> orders;
-    
+
 	@EJB(name="oFacade")
 	private OrderFacade orderFacade;
 
@@ -42,7 +42,7 @@ public class OrderController {
 
 	@EJB(name="cFacade")
 	private CustomerFacade f;
-	
+
 
 	public String createOrder() {
 		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
@@ -50,42 +50,51 @@ public class OrderController {
 		/*
 		 * TODO far prendere id utente dalla sessione
 		 */
-		Order newOrder = this.orderFacade.createOrder(new Date(), new Long(7551));
+		Order newOrder = this.orderFacade.createOrder(new Date(), new Long(8701));
 		request.getSession().setAttribute("newOrderId", newOrder.getId());
 		return "newOrder";
 	}
-	
+
+	public String findOrder() {
+		this.setOrder(this.orderFacade.getOrder(this.id));
+		this.setOrderTot(this.evaluateOrderTotal(this.order));
+		return "orderDetails";
+	}
+
 	public String listOrders() {
 		/*
 		 * TODO far prendere id utente dalla sessione
 		 */
-		this.orders = this.orderFacade.getCustomerOrders(new Long(7551));
+		this.setOrders(this.orderFacade.getCustomerOrders(new Long(8701)));
 		return "customerOrders";
 	}
-	
+
 	public String orderRecap(){
-		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
-		Long orderId = (Long)request.getSession().getAttribute("newOrderId");
+		Long orderId = retriveNewOrderId();
 		Order o = this.orderFacade.getOrder(orderId);
-		this.orderTot = Double.valueOf(0);
-		for(OrderLine ol:o.getOrderLines())
-			this.orderTot = this.orderTot + (ol.getUnitPrice()*ol.getQuantity());
+		this.orderTot = this.evaluateOrderTotal(o);
 		this.setOrder(o);
 		return "orderRecap";
 	}
-	
+
 	public String closeOrder(){
-		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
-		Long orderId = (Long)request.getSession().getAttribute("newOrderId");
+		Long orderId = retriveNewOrderId();
 		this.orderFacade.closeOrder(orderId);
 		return "index";
 	}
-	
-	public String findProduct() {
-		this.product = productFacade.getProduct(id);
-		return null;
+
+	private Long retriveNewOrderId(){
+		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
+		return (Long)request.getSession().getAttribute("newOrderId");
 	}
-	
+
+	private Double evaluateOrderTotal(Order o) {
+		Double total = new Double(0);
+		for(OrderLine ol:o.getOrderLines())
+			total = total + (ol.getUnitPrice()*ol.getQuantity());
+		return total;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -148,14 +157,6 @@ public class OrderController {
 
 	public void setStatus(Integer status) {
 		this.status = status;
-	}
-
-	public OrderFacade getOrderFacade() {
-		return orderFacade;
-	}
-
-	public void setOrderFacade(OrderFacade orderFacade) {
-		this.orderFacade = orderFacade;
 	}
 
 	public List<Product> getProducts() {

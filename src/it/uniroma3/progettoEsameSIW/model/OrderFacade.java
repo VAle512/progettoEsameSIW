@@ -6,9 +6,6 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
-import javax.persistence.criteria.CriteriaQuery;
-
 
 @Stateless(name = "oFacade")
 public class OrderFacade {
@@ -39,5 +36,4 @@ public class OrderFacade {
 		Customer c = this.em.find(Customer.class,id);
 		return c.getOrders();
 	}
-
 }
