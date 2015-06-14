@@ -20,7 +20,7 @@
 				</h:form></li>
 		
 			<li><h:form>
-					<h:commandLink action="#{productController.createProduct}" value="New Product" />
+					<h:commandLink action="newProduct" value="New Product" />
 				</h:form></li>
 
 
