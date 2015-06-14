@@ -11,6 +11,7 @@
 <title>Order details</title>
 </head>
 <body>
+	<%@ include file="htmlElements/header.jsp"%>
 	<f:view>
 		<h1>Order id: ${orderController.order.id}</h1>
 		<div class="container">

@@ -11,6 +11,7 @@
 <title>New Product</title>
 </head>
 <body>
+	<%@ include file="htmlElements/header.jsp"%>
 	<f:view>
 		<h:form>
 			<div>

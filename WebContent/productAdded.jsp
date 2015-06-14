@@ -11,6 +11,7 @@
 <title>Insert complete</title>
 </head>
 <body>
+	<%@ include file="htmlElements/header.jsp"%>
 	<h1>Prodotto inserito correttamente!</h1>
 	<f:view>
 		<h:form>

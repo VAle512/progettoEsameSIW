@@ -36,7 +36,7 @@ public class AdministratorController {
 			a.checkPassword(this.password); 
 		}
 		catch (NoResultException | InvalidPasswordException | AdministratorNotFoundException  e1 )	{
-			return "loginError2";
+			return "loginError";
 
 		}
 		return "indexAdministrator";

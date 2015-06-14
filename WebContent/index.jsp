@@ -11,84 +11,76 @@
 <title>Progetto Esame SIW</title>
 </head>
 <body>
+	<%@ include file="htmlElements/header.jsp"%>
+	<div class="container">
+		<p>
+			<f:view>
+				<h1>Main Menu</h1>
+				<ul>
+					<li><h:form>
+							<h:commandLink action="#{productController.getCatalog}"
+								value="Get Catalog" />
+						</h:form></li>
 
-<div class="container">
-  <div class="jumbotron">
-    <h1>Piccol</h1>      
-    <p>Piccol is the most popular store on the web.</p>
-  </div>
-  <p><f:view>
+					<li><h:form>
+							<h:commandLink action="newCustomer" value="New Customer" />
+						</h:form></li>
 
-		<h1>Main Menu</h1>
-		<ul>
-			<li><h:form>
-					<h:commandLink action="#{productController.getCatalog}"
-						value="Get Catalog" />
-				</h:form></li>
-		
-			<li><h:form>
-					<h:commandLink action="newCustomer" value="New Customer" />
-				</h:form></li>
+					<li><h:form>
+							<h:commandLink action="login" value="Login" />
+						</h:form></li>
+				</ul>
+				<h:form>
+					<div id="login-overlay" class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header" align="right" width=50%>
 
-			<li><h:form>
-					<h:commandLink action="login" value="Login" />
-				</h:form></li>
+								<h4 class="modal-title" id="myModalLabel">Login
+									Administrator</h4>
+							</div>
+							<div class="modal-body">
+								<div class="row">
+									<div class="col-xs-6">
+										<div class="well">
+											<div class="form-group">
+												<label for="username" class="control-label">Username</label>
+												<h:inputText value="#{administratorController.userId}"
+													required="true" requiredMessage="UserId is mandatory"
+													id="userId" />
+												<h:message for="userId" />
 
-			
-		</ul>
-		<h:form>
-			<div id="login-overlay" class="modal-dialog" >
-				<div class="modal-content" >
-					<div class="modal-header" align ="right" width = 50%>
-
-						<h4 class="modal-title" id="myModalLabel">Login Administrator</h4>
-					</div>
-					<div class="modal-body">
-						<div class="row">
-							<div class="col-xs-6">
-								<div class="well">
-									<div class="form-group">
-										<label for="username" class="control-label">Username</label>
-										<h:inputText value="#{administratorController.userId}"
-											required="true" requiredMessage="UserId is mandatory"
-											id="userId" />
-										<h:message for="userId" />
-
-										<span class="help-block"></span>
+												<span class="help-block"></span>
+											</div>
+											<div class="form-group">
+												<label for="password" class="control-label">Password</label>
+												<h:inputSecret value="#{administratorController.password}"
+													required="true" requiredMessage="Password is mandatory"
+													id="password" />
+												<h:message for="password" />
+												<span class="help-block"></span>
+											</div>
+											<div class="checkbox">
+												<label> <input type="checkbox" name="remember"
+													id="remember"> Remember login
+												</label>
+												<p class="help-block"></p>
+											</div>
+											<h:commandButton
+												action="#{administratorController.checkLogin}" value="Login">
+											</h:commandButton>
+											<h:commandButton
+												action="#{administratorController.helpToLogin}"
+												value="Help to Login">
+											</h:commandButton>
+										</div>
 									</div>
-									<div class="form-group">
-										<label for="password" class="control-label">Password</label>
-										<h:inputSecret value="#{administratorController.password}"
-											required="true" requiredMessage="Password is mandatory"
-											id="password" />
-										<h:message for="password" />
-										<span class="help-block"></span>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="remember"
-											id="remember"> Remember login
-										</label>
-										<p class="help-block"></p>
-									</div>
-									<h:commandButton action="#{administratorController.checkLogin}"
-										value="Login">
-									</h:commandButton>
-									<h:commandButton
-										action="#{administratorController.helpToLogin}"
-										value="Help to Login">
-									</h:commandButton>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-		</h:form>
-	</f:view></p>      
-    
-</div>
-
-
-	
+				</h:form>
+			</f:view>
+		</p>
+	</div>
 </body>
 </html>

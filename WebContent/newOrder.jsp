@@ -11,6 +11,7 @@
 <title>New Order</title>
 </head>
 <body>
+	<%@ include file="htmlElements/header.jsp"%>
 	<f:view>
 		<h1>New Order</h1>
 		<div class="container">

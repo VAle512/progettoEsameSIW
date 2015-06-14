@@ -15,6 +15,7 @@
 <title>Recap</title>
 </head>
 <body>
+	<%@ include file="htmlElements/header.jsp"%>
 	<f:view>
 		<h1>Order id: ${orderController.order.id}</h1>
 		<div class="container">
@@ -49,10 +50,11 @@
 				<div class="panel-body">${orderController.orderTot}</div>
 			</div>
 			<h:form>
-				<h:commandButton action="#{orderController.closeOrder}" value="Close your order!">
+				<h:commandButton action="#{orderController.closeOrder}"
+					value="Close your order!">
 				</h:commandButton>
 			</h:form>
-			<input type = "button" value = "Back!" onclick= "history.back()"/>
+			<input type="button" value="Back!" onclick="history.back()" />
 		</div>
 	</f:view>
 </body>

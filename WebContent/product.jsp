@@ -10,6 +10,7 @@
 <title>Product Description</title>
 </head>
 <body>
+	<%@ include file="htmlElements/header.jsp"%>
 	<f:view>
 		<h1>${productController.product.name}</h1>
 		<div>Price: ${productController.product.price}</div>

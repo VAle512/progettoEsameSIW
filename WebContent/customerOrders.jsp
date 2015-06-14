@@ -11,6 +11,7 @@
 <title>My orders</title>
 </head>
 <body>
+	<%@ include file="htmlElements/header.jsp"%>
 	<f:view>
 		<h1>My orders</h1>
 		<h:form>
@@ -22,7 +23,6 @@
 							<th>Open Date</th>
 							<th>Close Date</th>
 							<th>Evasion Date</th>
-							<th>Status</th>
 							<th>Products</th>
 						</tr>
 					</thead>
@@ -33,7 +33,6 @@
 								<td>${order.openDate}</td>
 								<td>${order.closeDate}</td>
 								<td>${order.evasionDate}</td>
-								<td>${order.status}</td>
 								<td><h:commandButton action="#{orderController.findOrder}"
 										value="More details">
 										<f:param name="id" value="#{order.id}" />

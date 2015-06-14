@@ -11,6 +11,7 @@
 <title>Error</title>
 </head>
 <body>
+	<%@ include file="htmlElements/header.jsp"%>
 	<f:view>
 		<div>The quantity you are trying to order
 			(${orderLineController.quantity}), is bigger than the quantity

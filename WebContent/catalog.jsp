@@ -11,6 +11,7 @@
 <title>Catalog</title>
 </head>
 <body>
+	<%@ include file="htmlElements/header.jsp"%>
 	<f:view>
 		<h1>Catalog</h1>
 		<h:form>
