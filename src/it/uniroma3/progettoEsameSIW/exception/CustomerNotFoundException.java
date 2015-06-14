@@ -1,4 +1,4 @@
-package it.uniroma3.progettoEsameSIW.model;
+package it.uniroma3.progettoEsameSIW.exception;
 
 public class CustomerNotFoundException extends Exception {
 

@@ -20,7 +20,6 @@ public class OrderLine {
 	@Column(nullable = false)
 	private Product product;
 
-
 	public OrderLine(){}
 	
 	public OrderLine(Double unitPrice, Integer quantity, Product product) {

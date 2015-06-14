@@ -93,5 +93,4 @@ public class Product {
 	public void setProviders(List<Provider> providers) {
 		this.providers = providers;
 	}
-	
 }

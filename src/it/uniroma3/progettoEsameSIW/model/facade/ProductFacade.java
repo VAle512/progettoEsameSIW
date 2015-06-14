@@ -1,6 +1,9 @@
-package it.uniroma3.progettoEsameSIW.model;
+package it.uniroma3.progettoEsameSIW.model.facade;
+
+import it.uniroma3.progettoEsameSIW.model.Product;
 
 import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

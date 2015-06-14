@@ -1,5 +1,7 @@
 package it.uniroma3.progettoEsameSIW.model;
 
+import it.uniroma3.progettoEsameSIW.exception.InvalidPasswordException;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,6 +34,14 @@ public class Administrator {
 		this.password = password;
 	}
 	
+	public Administrator checkPassword(String password2) throws InvalidPasswordException {
+		if( this.password.equals(password2))
+			return this;
+		else {
+			throw new InvalidPasswordException();
+		}
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -61,14 +71,5 @@ public class Administrator {
 	}
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	
-	
-	public Administrator checkPassword(String password2) throws InvalidPasswordException {
-		if( this.password.equals(password2))
-			return this;
-		else {
-			throw new InvalidPasswordException();
-		}
 	}
 }

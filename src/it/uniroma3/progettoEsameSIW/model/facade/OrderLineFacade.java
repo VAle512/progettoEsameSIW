@@ -1,4 +1,9 @@
-package it.uniroma3.progettoEsameSIW.model;
+package it.uniroma3.progettoEsameSIW.model.facade;
+
+import it.uniroma3.progettoEsameSIW.exception.InvalidQuantityException;
+import it.uniroma3.progettoEsameSIW.model.Order;
+import it.uniroma3.progettoEsameSIW.model.OrderLine;
+import it.uniroma3.progettoEsameSIW.model.Product;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

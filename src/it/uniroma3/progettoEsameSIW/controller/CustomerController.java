@@ -1,11 +1,11 @@
 package it.uniroma3.progettoEsameSIW.controller;
 
+import it.uniroma3.progettoEsameSIW.exception.CustomerNotFoundException;
+import it.uniroma3.progettoEsameSIW.exception.InvalidPasswordException;
 import it.uniroma3.progettoEsameSIW.model.Address;
 import it.uniroma3.progettoEsameSIW.model.Customer;
-import it.uniroma3.progettoEsameSIW.model.CustomerFacade;
-import it.uniroma3.progettoEsameSIW.model.CustomerNotFoundException;
-import it.uniroma3.progettoEsameSIW.model.InvalidPasswordException;
 import it.uniroma3.progettoEsameSIW.model.Order;
+import it.uniroma3.progettoEsameSIW.model.facade.CustomerFacade;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -53,7 +53,7 @@ public class CustomerController {
 			birthDate = format.parse(this.birthDate);
 		} catch (ParseException e) {
 			FacesContext facesContext = FacesContext.getCurrentInstance();
-			facesContext.addMessage("orderForm:birthDate", new FacesMessage("Date format must be the following dd/mm/yyyy"));
+			facesContext.addMessage("registrationForm:birthDate", new FacesMessage("Date format must be the following dd/mm/yyyy"));
 			return null;
 		}
 		Address address = new Address(street, city, state, zipcode, country);

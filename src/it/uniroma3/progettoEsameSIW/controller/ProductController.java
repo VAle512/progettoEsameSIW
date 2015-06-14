@@ -1,8 +1,10 @@
 package it.uniroma3.progettoEsameSIW.controller;
 
 import it.uniroma3.progettoEsameSIW.model.Product;
-import it.uniroma3.progettoEsameSIW.model.ProductFacade;
+import it.uniroma3.progettoEsameSIW.model.facade.ProductFacade;
+
 import java.util.List;
+
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;

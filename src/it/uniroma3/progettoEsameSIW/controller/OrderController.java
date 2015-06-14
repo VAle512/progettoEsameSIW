@@ -1,12 +1,12 @@
 package it.uniroma3.progettoEsameSIW.controller;
 
 import it.uniroma3.progettoEsameSIW.model.Customer;
-import it.uniroma3.progettoEsameSIW.model.CustomerFacade;
 import it.uniroma3.progettoEsameSIW.model.Order;
-import it.uniroma3.progettoEsameSIW.model.OrderFacade;
 import it.uniroma3.progettoEsameSIW.model.OrderLine;
 import it.uniroma3.progettoEsameSIW.model.Product;
-import it.uniroma3.progettoEsameSIW.model.ProductFacade;
+import it.uniroma3.progettoEsameSIW.model.facade.CustomerFacade;
+import it.uniroma3.progettoEsameSIW.model.facade.OrderFacade;
+import it.uniroma3.progettoEsameSIW.model.facade.ProductFacade;
 
 import java.util.Date;
 import java.util.List;

@@ -1,5 +1,7 @@
 package it.uniroma3.progettoEsameSIW.model;
 
+import it.uniroma3.progettoEsameSIW.exception.InvalidPasswordException;
+
 import java.util.Date;
 import java.util.List;
 
@@ -48,6 +50,14 @@ public class Customer {
 		this.password = password;
 	}
 
+
+	public Customer checkPassword(String password2) throws InvalidPasswordException {
+		if( this.password.equals(password2))
+			return this;
+		else {
+			throw new InvalidPasswordException();
+		}
+	}
 
 	public Address getAddress() {
 		return address;
@@ -121,15 +131,6 @@ public class Customer {
 
 	public void setOrders(List<Order> orders) {
 		this.orders = orders;
-	}
-
-
-	public Customer checkPassword(String password2) throws InvalidPasswordException {
-		if( this.password.equals(password2))
-			return this;
-		else {
-			throw new InvalidPasswordException();
-		}
 	}
 
 }

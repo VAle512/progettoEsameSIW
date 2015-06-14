@@ -1,4 +1,7 @@
-package it.uniroma3.progettoEsameSIW.model;
+package it.uniroma3.progettoEsameSIW.model.facade;
+
+import it.uniroma3.progettoEsameSIW.model.Customer;
+import it.uniroma3.progettoEsameSIW.model.Order;
 
 import java.util.Date;
 import java.util.List;

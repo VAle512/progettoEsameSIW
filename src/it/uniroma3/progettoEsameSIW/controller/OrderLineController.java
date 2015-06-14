@@ -1,8 +1,8 @@
 package it.uniroma3.progettoEsameSIW.controller;
 
-import it.uniroma3.progettoEsameSIW.model.InvalidQuantityException;
+import it.uniroma3.progettoEsameSIW.exception.InvalidQuantityException;
 import it.uniroma3.progettoEsameSIW.model.OrderLine;
-import it.uniroma3.progettoEsameSIW.model.OrderLineFacade;
+import it.uniroma3.progettoEsameSIW.model.facade.OrderLineFacade;
 
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
@@ -36,7 +36,7 @@ public class OrderLineController {
 			this.orderLine = orderLineFacade.createOrderLine(unitPrice, quantity, productId, orderId);
 		} catch (InvalidQuantityException e) {
 			FacesContext facesContext = FacesContext.getCurrentInstance();
-			facesContext.addMessage("registrationForm:quantity", new FacesMessage("You have selected a quantity for your order bigger than the available. Please try again with a different one!"));
+			facesContext.addMessage("orderForm:quantity", new FacesMessage("You have selected a quantity for your order bigger than the available. Please try again with a different one!"));
 			return null;
 		}
 		return "productAdded"; 

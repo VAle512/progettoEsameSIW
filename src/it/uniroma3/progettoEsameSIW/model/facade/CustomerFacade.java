@@ -1,4 +1,8 @@
-package it.uniroma3.progettoEsameSIW.model;
+package it.uniroma3.progettoEsameSIW.model.facade;
+
+import it.uniroma3.progettoEsameSIW.exception.CustomerNotFoundException;
+import it.uniroma3.progettoEsameSIW.model.Address;
+import it.uniroma3.progettoEsameSIW.model.Customer;
 
 import java.util.Date;
 import java.util.List;
@@ -13,7 +17,6 @@ public class CustomerFacade {
 
 	@PersistenceContext(unitName = "dbProgettoSIW-unit")
 	private EntityManager em;
-
 
 	public Customer createCustomer(String name, String surname, Date birthDate,
 			Date registrationDate, Address address, String email, String userId, String password)	{
@@ -34,20 +37,19 @@ public class CustomerFacade {
 			if (c.getEmail().equals(emailN))
 				return c;
 			}
-		
 		throw new CustomerNotFoundException();
-		
 	}
 	
-	public boolean sameString(String s1, String s2)	{
-		boolean t = true;
-		int i=0;
-		while(i<=s1.length() && t)	{
-			if (s1.charAt(i)!=s2.charAt(i))
-				t = false;
-		}
-		return t;
-	}
+	/*TODO a che serve?*/
+//	public boolean sameString(String s1, String s2)	{
+//		boolean t = true;
+//		int i=0;
+//		while(i<=s1.length() && t)	{
+//			if (s1.charAt(i)!=s2.charAt(i))
+//				t = false;
+//		}
+//		return t;
+//	}
 	
 	public List<Customer> getCustomers() 	{
 		Query query = this.em.createQuery("SELECT c FROM Customer c");

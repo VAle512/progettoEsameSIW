@@ -1,4 +1,7 @@
-package it.uniroma3.progettoEsameSIW.model;
+package it.uniroma3.progettoEsameSIW.model.facade;
+
+import it.uniroma3.progettoEsameSIW.exception.AdministratorNotFoundException;
+import it.uniroma3.progettoEsameSIW.model.Administrator;
 
 import java.util.List;
 
@@ -40,5 +43,4 @@ public class AdministratorFacade {
 		List<Administrator> administrators = query.getResultList();
 		return administrators;
 	}
-
 }

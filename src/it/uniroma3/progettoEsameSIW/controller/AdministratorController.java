@@ -1,9 +1,9 @@
 package it.uniroma3.progettoEsameSIW.controller;
 
+import it.uniroma3.progettoEsameSIW.exception.AdministratorNotFoundException;
+import it.uniroma3.progettoEsameSIW.exception.InvalidPasswordException;
 import it.uniroma3.progettoEsameSIW.model.Administrator;
-import it.uniroma3.progettoEsameSIW.model.AdministratorFacade;
-import it.uniroma3.progettoEsameSIW.model.AdministratorNotFoundException;
-import it.uniroma3.progettoEsameSIW.model.InvalidPasswordException;
+import it.uniroma3.progettoEsameSIW.model.facade.AdministratorFacade;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -20,14 +20,6 @@ public class AdministratorController {
 	private String surname;
 	private String userId;
 	private String password;
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
 	private Administrator administrator;
 
 	@EJB(name="aFacade")
@@ -49,7 +41,6 @@ public class AdministratorController {
 		}
 		return "indexAdministrator";
 	}
-
 
 	public Long getId() {
 		return id;
@@ -76,6 +67,14 @@ public class AdministratorController {
 		this.userId = userId;
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	public Administrator getAdministrator() {
 		return administrator;
 	}
@@ -83,7 +82,4 @@ public class AdministratorController {
 	public void setAdministrator(Administrator administrator) {
 		this.administrator = administrator;
 	}
-
-
-
 }
