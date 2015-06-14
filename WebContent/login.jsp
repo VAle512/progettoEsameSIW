@@ -27,12 +27,18 @@
                       <div class="well">
                               <div class="form-group">
                                   <label for="username" class="control-label">Username</label>
-                                  <input type="text" class="form-control" id="username" name="username" value="${customerController.email}"  title="Please enter you username" placeholder="example@gmail.com">
+                                  <h:inputText value="#{customerController.email}" required="true"
+					requiredMessage="Email is mandatory" id="email" />
+				<h:message for="email" />
+                                 
                                   <span class="help-block"></span>
                               </div>
                               <div class="form-group">
                                   <label for="password" class="control-label">Password</label>
-                                  <input type="password" class="form-control" id="password" name="password" value="${customerController.password}"  title="Please enter your password">
+                                  <h:inputSecret value="#{customerController.password}"
+					required="true" requiredMessage="Password is mandatory"
+					id="password" />
+				<h:message for="password" />
                                   <span class="help-block"></span>
                               </div>
                               <div class="checkbox">
