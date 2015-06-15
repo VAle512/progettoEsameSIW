@@ -13,9 +13,9 @@
 <body>
 	<%@ include file="htmlElements/header.jsp"%>
 	<f:view>
-		<h1>Catalog</h1>
 		<h:form>
 			<div class="container">
+			<h1>Catalog</h1>
 				<table class="table table-striped">
 					<thead>
 						<tr>
@@ -38,10 +38,15 @@
 								<td>${product.storageQuantity}</td>
 							</tr>
 						</c:forEach>
+		
 					</tbody>
+					
 				</table>
+				<button type="button" class="btn btn-danger"><h:commandLink onclick="history.back()" value="Danger! You may return back!" /></button>
 			</div>
+			
 		</h:form>
 	</f:view>
+	<%@ include file="htmlElements/footer.jsp"%>
 </body>
 </html>

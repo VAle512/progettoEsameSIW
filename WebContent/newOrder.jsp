@@ -13,8 +13,9 @@
 <body>
 	<%@ include file="htmlElements/header.jsp"%>
 	<f:view>
-		<h1>New Order</h1>
+		
 		<div class="container">
+		<h1>New Order</h1>
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -59,5 +60,6 @@
 			<input type="button" value="Back" onclick="history.back()" />
 		</h:form>
 	</f:view>
+	<%@ include file="htmlElements/footer.jsp"%>
 </body>
 </html>

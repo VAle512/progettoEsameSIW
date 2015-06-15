@@ -14,5 +14,6 @@
 	<%@ include file="htmlElements/header.jsp"%>
 	<h1>Se ha dimenticato Username o Password può provare inserendo le
 		credenziali del suo conto bancario</h1>
+		<%@ include file="htmlElements/footer.jsp"%>
 </body>
 </html>
