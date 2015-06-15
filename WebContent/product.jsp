@@ -19,5 +19,6 @@
 			${productController.product.storageQuantity}</div>
 		<div>Description: ${productController.product.description}</div>
 	</f:view>
+	<%@ include file="htmlElements/footer.jsp"%>
 </body>
 </html>

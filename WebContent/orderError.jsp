@@ -18,5 +18,6 @@
 			available in store. Please, chose a different amount!</div>
 			<input type = "button" value = "Back to the shop!" onclick= "history.back()"/>
 	</f:view>
+	<%@ include file="htmlElements/footer.jsp"%>
 </body>
 </html>
