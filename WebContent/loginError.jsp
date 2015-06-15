@@ -12,12 +12,16 @@
 </head>
 <body>
 	<%@ include file="htmlElements/header.jsp"%>
+	<f:view>
 	<div>
+	
 		<h1 align="center">Wrong Email or Password!</h1>
 		<p align="center">
-			<a href="/progettoEsameSIW/faces/login.jsp" class="btn btn-warning">Back
-				to Login!</a>
+			<button type="button" class="btn btn-warning"><h:form><h:commandLink action="index" value="Return to Login" /></h:form></button>
 		</p>
+		
 	</div>
+	</f:view>
+	<%@ include file="htmlElements/footer.jsp"%>
 </body>
 </html>
