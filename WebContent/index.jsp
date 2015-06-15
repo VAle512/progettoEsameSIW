@@ -49,15 +49,7 @@
 			<div class="clearfix visible-lg"></div>
 		</div>
 	</div>
-	<div>
-	<table width="100%" border="0">
-  <tr class="blubg">
-    <td class="blubg">
-      <font color="white"><img src="images/bravoh.jpg"></font>
-    </td>
-    </tr>
-    </table>
-    </div>
+
 		<h:form>
 
 			<div id="login-overlay" class="modal-dialog">
