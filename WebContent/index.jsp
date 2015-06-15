@@ -11,51 +11,42 @@
 <title>Progetto Esame SIW</title>
 </head>
 <body>
-
 	<%@ include file="htmlElements/header.jsp"%>
 	<f:view>
-	
-	<div class="container">
-		<div class="row">
-			<div class="col-md-3">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-					do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-			</div>
-			<div class="col-md-3">
-				<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco
-					laboris nisi ut aliquip ex ea commodo consequat.</p>
-			</div>
-			<div class="col-md-3">
-				<p>Sed ut perspiciatis unde omnis iste natus error sit
-					voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-			</div>
-			
-			<h:form>
-			<div class="col-md-3">
-				<ul class="nav nav-pills nav-stacked">
-					<li class="active"><a>Main Menu</a></li>
-					<li><h:commandLink action="#{productController.getCatalog}"
-						value="Get Catalog" /></li>
-					<li>
-					<h:commandLink action="newCustomer" value="New Customer" />
-				</li>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+						sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				</div>
+				<div class="col-md-3">
+					<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco
+						laboris nisi ut aliquip ex ea commodo consequat.</p>
+				</div>
+				<div class="col-md-3">
+					<p>Sed ut perspiciatis unde omnis iste natus error sit
+						voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+				</div>
 
-					<li>
-					<h:commandLink action="loginAdministrator" value="Login Administrator" />
-				</li>
-				</ul>
+				<h:form>
+					<div class="col-md-3">
+						<ul class="nav nav-pills nav-stacked">
+							<li class="active"><a>Main Menu</a></li>
+							<li><h:commandLink action="#{productController.getCatalog}"
+									value="Our Catalog" /></li>
+							<li><h:commandLink action="loginAdministrator"
+									value="Login Administrator" /></li>
+						</ul>
+					</div>
+				</h:form>
+				<div class="clearfix visible-lg"></div>
 			</div>
-			</h:form>
-			<div class="clearfix visible-lg"></div>
 		</div>
-	</div>
-
 		<h:form>
-
 			<div id="login-overlay" class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h4 class="modal-title" id="myModalLabel">Login</h4>
+						<h4 class="modal-title" id="myModalLabel">User Login</h4>
 					</div>
 					<div class="modal-body">
 						<div class="row">
@@ -93,15 +84,12 @@
 									<a href="/progettoEsameSIW/faces/newCustomer.jsp"
 										class="btn btn-info btn-block">Yes please, register now!</a>
 								</p>
-
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</h:form>
-
 	</f:view>
-
 </body>
 </html>
