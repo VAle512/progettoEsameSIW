@@ -13,11 +13,17 @@
 <body>
 	<%@ include file="htmlElements/header.jsp"%>
 	<f:view>
-		<h1>${productController.product.name}</h1>
-		<div>Price: ${productController.product.price}</div>
-		<div>Storage Quantity:
-			${productController.product.storageQuantity}</div>
-		<div>Description: ${productController.product.description}</div>
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h1>${productController.product.name}</h1>
+			</div>
+			<div class="panel-body">
+				<div>Price: ${productController.product.price} &euro;</div>
+				<div>Storage quantity:
+					${productController.product.storageQuantity}</div>
+				<div>Description: ${productController.product.description}</div>
+			</div>
+		</div>
 	</f:view>
 	<%@ include file="htmlElements/footer.jsp"%>
 </body>

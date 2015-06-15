@@ -22,7 +22,7 @@
 							<th>Name</th>
 							<th>Product code</th>
 							<th>Price</th>
-							<th>Storaged quantity</th>
+							<th>Storage quantity</th>
 						</tr>
 					</thead>
 					<tbody>

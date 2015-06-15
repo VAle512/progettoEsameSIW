@@ -20,10 +20,10 @@
 				<thead>
 					<tr>
 						<th>Name</th>
-						<th>Code</th>
+						<th>Product code</th>
 						<th>Price</th>
-						<th>StorageQuantity</th>
-						<th>Quantity:</th>
+						<th>Storage quantity</th>
+						<th>Quantity to order</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -36,7 +36,7 @@
 										<f:param name="id" value="#{product.id}" />
 									</h:commandLink></td>
 								<td>${product.code}</td>
-								<td>${product.price}</td>
+								<td>${product.price} &euro;</td>
 								<td>${product.storageQuantity}</td>
 								<td><h:inputText value="#{orderLineController.quantity}"
 										id="quantity" /></td>

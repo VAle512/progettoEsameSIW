@@ -88,7 +88,7 @@
 						<label class="control-label col-sm-2" for="country">Country:</label>
 						<div>
 							<h:inputText value="#{customerController.country}"
-								required="true" requiredMessage="Origin country is mandatory"
+								required="true" requiredMessage="Country is mandatory"
 								id="country" />
 							<h:message for="country" />
 						</div>
@@ -113,11 +113,12 @@
 						</div>
 					</div>
 				</div>
-
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
-						<h:commandButton value="Register!"
+						<h:commandButton value="Register now!"
 							action="#{customerController.createCustomer}" />
+						<input type="button" value="Back to index"
+							onclick="history.back()" />
 					</div>
 				</div>
 			</div>
