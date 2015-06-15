@@ -15,14 +15,14 @@
 	<f:view>
 		<h:form>
 			<div class="container">
-			<h1>Catalog</h1>
+			<h1>Our Catalog</h1>
 				<table class="table table-striped">
 					<thead>
 						<tr>
 							<th>Name</th>
-							<th>Code</th>
+							<th>Product code</th>
 							<th>Price</th>
-							<th>Quantity</th>
+							<th>Storaged quantity</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -34,7 +34,7 @@
 										<f:param name="id" value="#{product.id}" />
 									</h:commandLink></td>
 								<td>${product.code}</td>
-								<td>${product.price}</td>
+								<td>${product.price} &euro;</td>
 								<td>${product.storageQuantity}</td>
 							</tr>
 						</c:forEach>

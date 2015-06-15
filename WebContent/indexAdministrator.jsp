@@ -23,11 +23,7 @@
 			<li><h:form>
 					<h:commandLink action="newProduct" value="New Product" />
 				</h:form></li>
-
-
-
 		</ul>
-
 	</f:view>
 	<%@ include file="htmlElements/footer.jsp"%>
 </body>

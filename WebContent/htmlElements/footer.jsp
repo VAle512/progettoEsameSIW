@@ -2,7 +2,7 @@
 <table width="100%" border="0">
   <tr>
     <td class="footer">
-      Powered by Alessandro Fogli & Valerio Cetorelli
+      Powered by Alessandro Fogli & Valerio Cetorelli &copy;
     </td>
   </tr>
 </table>
