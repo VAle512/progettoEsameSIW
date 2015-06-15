@@ -1,7 +1,9 @@
 package it.uniroma3.progettoEsameSIW.model;
 
+import java.util.LinkedList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,16 +28,18 @@ public class Product {
 	private Integer storageQuantity;
 	@ManyToMany(mappedBy = "products")
 	private List<Provider> providers;
-	
+
 	public Product(){}
-	
+
 	public Product(String name, String code, String description, Double price,
-			Integer storageQuantity) {
+			Integer storageQuantity, Provider provider) {
 		this.name = name;
 		this.code = code;
 		this.description = description;
 		this.price = price;
 		this.storageQuantity = storageQuantity;
+		this.providers = new LinkedList<Provider>();
+		this.providers.add(provider);
 	}
 
 	public Long getId() {

@@ -1,17 +1,21 @@
 package it.uniroma3.progettoEsameSIW.controller;
 
+import it.uniroma3.progettoEsameSIW.exception.ProviderNotFoundException;
 import it.uniroma3.progettoEsameSIW.model.Product;
+import it.uniroma3.progettoEsameSIW.model.Provider;
 import it.uniroma3.progettoEsameSIW.model.facade.ProductFacade;
+import it.uniroma3.progettoEsameSIW.model.facade.ProviderFacade;
 
 import java.util.List;
 
 import javax.ejb.EJB;
+import javax.ejb.EJBTransactionRolledbackException;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 
 @ManagedBean
 public class ProductController {
-	
+
 	@ManagedProperty(value="#{param.id}")
 	private Long id;
 	private String name;
@@ -21,15 +25,29 @@ public class ProductController {
 	private Integer storageQuantity;
 	private Product product;
 	private List<Product> products;
-	
+
+	private String providerVatin;
+
 	@EJB(name="pFacade")
 	private ProductFacade productFacade;
-	
-	public String createProduct() {
-		this.product = productFacade.createProduct(name, code, description, price, storageQuantity);
-		return "product"; 
+	@EJB(name="pvFacade")
+	private ProviderFacade providerFacade;
+
+	public String createProduct(){
+		Provider pv;
+		try {
+			pv = this.providerFacade.findProvider(this.providerVatin);
+		} catch (ProviderNotFoundException e) {
+			return "missingProvider";
+		}
+		try{
+			this.product = productFacade.createProduct(name, code, description, price, storageQuantity, pv.getId());
+		}catch(EJBTransactionRolledbackException e){
+			return "productErr";
+		}
+		return "productConfirmed"; 
 	}
-	
+
 	public String getCatalog() {
 		this.products = productFacade.getAllProducts();
 		return "catalog"; 
@@ -39,7 +57,7 @@ public class ProductController {
 		this.product = productFacade.getProduct(id);
 		return "product";
 	}
-	
+
 	public String findProduct(Long id) {
 		this.product = productFacade.getProduct(id);
 		return "product";
@@ -84,7 +102,7 @@ public class ProductController {
 	public void setCode(String code) {
 		this.code = code;
 	}
-	
+
 	public Integer getStorageQuantity() {
 		return storageQuantity;
 	}
@@ -107,5 +125,13 @@ public class ProductController {
 
 	public void setProducts(List<Product> products) {
 		this.products = products;
+	}
+
+	public String getProviderVatin() {
+		return providerVatin;
+	}
+
+	public void setProviderVatin(String providerVatin) {
+		this.providerVatin = providerVatin;
 	}
 }

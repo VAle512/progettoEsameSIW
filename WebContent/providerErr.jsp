@@ -8,25 +8,21 @@
 <link rel="stylesheet"
 	href="/progettoEsameSIW/bootstrap/css/bootstrap.min.css">
 <script src="/progettoEsameSIW/bootsrap/js/bootstrap.min.js"></script>
-<title>Progetto Esame SIW</title>
+<title>Provider</title>
 </head>
 <body>
 	<%@ include file="htmlElements/header.jsp"%>
 	<f:view>
-		<h1>Administrator Menu</h1>
-		<ul>
-			<li><h:form>
-					<h:commandLink action="#{productController.getCatalog}"
-						value="Show Catalog" />
-				</h:form></li>
-
-			<li><h:form>
-					<h:commandLink action="newProduct" value="Insert New Product" />
-				</h:form></li>
-			<li><h:form>
-					<h:commandLink action="newProvider" value="Insert New Provider" />
-				</h:form></li>
-		</ul>
+		<h1>A provider with VATIN: "${providerController.vatin}" already
+			exists in our database!</h1>
+		<p align="center">
+			<h:form>
+				<h:commandButton action="newProvider" value="Try again" />
+			</h:form>
+			<h:form>
+				<h:commandButton action="indexAdministrator" value="Back to menu" />
+			</h:form>
+		</p>
 	</f:view>
 	<%@ include file="htmlElements/footer.jsp"%>
 </body>
