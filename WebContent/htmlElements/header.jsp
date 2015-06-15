@@ -1,8 +1,9 @@
 <div class="container">
 	<div class="jumbotron">
-		<h1>	<img src="images/piccol.jpg"></h1>
-		<p>Piccol is the most popular store on the web...</p>
+		<img src="images/piccol.jpg"> 
+		<p>Piccol is the most popular store on the web.</p>
 	</div>
+	
 </div>
 
 

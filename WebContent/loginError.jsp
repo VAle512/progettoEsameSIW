@@ -8,7 +8,7 @@
 <link rel="stylesheet"
 	href="/progettoEsameSIW/bootstrap/css/bootstrap.min.css">
 <script src="/progettoEsameSIW/bootsrap/js/bootstrap.min.js"></script>
-<title>Insert title here</title>
+<title>Progetto Esame SIW</title>
 </head>
 <body>
 	<%@ include file="htmlElements/header.jsp"%>

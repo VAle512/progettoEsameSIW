@@ -57,5 +57,6 @@
 			<input type="button" value="Back!" onclick="history.back()" />
 		</div>
 	</f:view>
+	<%@ include file="htmlElements/footer.jsp"%>
 </body>
 </html>

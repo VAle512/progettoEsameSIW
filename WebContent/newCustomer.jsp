@@ -123,5 +123,6 @@
 			</div>
 		</h:form>
 	</f:view>
+	<%@ include file="htmlElements/footer.jsp"%>
 </body>
 </html>
