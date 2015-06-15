@@ -80,10 +80,6 @@ public class CustomerController {
 		return "indexNoLogin";
 	}
 
-	public String helpToLogin()	{
-		return "help";
-	}
-
 	public Long getId() {
 		return id;
 	}

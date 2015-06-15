@@ -11,76 +11,105 @@
 <title>Progetto Esame SIW</title>
 </head>
 <body>
+
 	<%@ include file="htmlElements/header.jsp"%>
+	<f:view>
+	
 	<div class="container">
-		<p>
-			<f:view>
-				<h1>Main Menu</h1>
-				<ul>
-					<li><h:form>
-							<h:commandLink action="#{productController.getCatalog}"
-								value="Get Catalog" />
-						</h:form></li>
+		<div class="row">
+			<div class="col-md-3">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+					do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			</div>
+			<div class="col-md-3">
+				<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco
+					laboris nisi ut aliquip ex ea commodo consequat.</p>
+			</div>
+			<div class="col-md-3">
+				<p>Sed ut perspiciatis unde omnis iste natus error sit
+					voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+			</div>
+			
+			<h:form>
+			<div class="col-md-3">
+				<ul class="nav nav-pills nav-stacked">
+					<li class="active"><a>Main Menu</a></li>
+					<li><h:commandLink action="#{productController.getCatalog}"
+						value="Get Catalog" /></li>
+					<li>
+					<h:commandLink action="newCustomer" value="New Customer" />
+				</li>
 
-					<li><h:form>
-							<h:commandLink action="newCustomer" value="New Customer" />
-						</h:form></li>
-
-					<li><h:form>
-							<h:commandLink action="login" value="Login" />
-						</h:form></li>
+					<li>
+					<h:commandLink action="loginAdministrator" value="Login Administrator" />
+				</li>
 				</ul>
-				<h:form>
-					<div id="login-overlay" class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header" align="right" width=50%>
+			</div>
+			</h:form>
+			<div class="clearfix visible-lg"></div>
+		</div>
+	</div>
+	<div>
+	<table width="100%" border="0">
+  <tr class="blubg">
+    <td class="blubg">
+      <font color="white"><img src="images/bravoh.jpg"></font>
+    </td>
+    </tr>
+    </table>
+    </div>
+		<h:form>
 
-								<h4 class="modal-title" id="myModalLabel">Login
-									Administrator</h4>
-							</div>
-							<div class="modal-body">
-								<div class="row">
-									<div class="col-xs-6">
-										<div class="well">
-											<div class="form-group">
-												<label for="username" class="control-label">Username</label>
-												<h:inputText value="#{administratorController.userId}"
-													required="true" requiredMessage="UserId is mandatory"
-													id="userId" />
-												<h:message for="userId" />
-
-												<span class="help-block"></span>
-											</div>
-											<div class="form-group">
-												<label for="password" class="control-label">Password</label>
-												<h:inputSecret value="#{administratorController.password}"
-													required="true" requiredMessage="Password is mandatory"
-													id="password" />
-												<h:message for="password" />
-												<span class="help-block"></span>
-											</div>
-											<div class="checkbox">
-												<label> <input type="checkbox" name="remember"
-													id="remember"> Remember login
-												</label>
-												<p class="help-block"></p>
-											</div>
-											<h:commandButton
-												action="#{administratorController.checkLogin}" value="Login">
-											</h:commandButton>
-											<h:commandButton
-												action="#{administratorController.helpToLogin}"
-												value="Help to Login">
-											</h:commandButton>
+			<div id="login-overlay" class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title" id="myModalLabel">Login</h4>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-xs-6">
+								<div class="well">
+									<div class="form-group">
+										<label for="username" class="control-label">Email </label>
+										<div>
+											<h:inputText value="#{customerController.email}"
+												required="true" requiredMessage="Email is mandatory"
+												id="email" />
+											<h:message for="email" />
+											<span class="help-block"></span>
 										</div>
 									</div>
+									<div class="form-group">
+										<label for="password" class="control-label">Password</label>
+										<h:inputSecret value="#{customerController.password}"
+											required="true" requiredMessage="Password is mandatory"
+											id="password" />
+										<h:message for="password" />
+										<span class="help-block"></span>
+									</div>
+									<h:commandButton action="#{customerController.checkLogin}"
+										value="Login">
+									</h:commandButton>
 								</div>
+							</div>
+							<div class="col-xs-6">
+								<p class="lead">
+									<span class="fa fa-check text-success"></span> Register now for
+									<span class="text-success">FREE</span>
+								</p>
+								<p>
+									<a href="/progettoEsameSIW/faces/newCustomer.jsp"
+										class="btn btn-info btn-block">Yes please, register now!</a>
+								</p>
+
 							</div>
 						</div>
 					</div>
-				</h:form>
-			</f:view>
-		</p>
-	</div>
+				</div>
+			</div>
+		</h:form>
+
+	</f:view>
+
 </body>
 </html>

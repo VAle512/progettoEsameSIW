@@ -1,40 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=US-ASCII"
-	pageEncoding="US-ASCII"%>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsf/core"%>
 <%@ taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<link rel="stylesheet"
+	href="/progettoEsameSIW/bootstrap/css/bootstrap.min.css">
+<script src="/progettoEsameSIW/bootsrap/js/bootstrap.min.js"></script>
 <title>Progetto Esame SIW</title>
 </head>
 <body>
 	<%@ include file="htmlElements/header.jsp"%>
 	<f:view>
-		<h1>Main Menu</h1>
-		<ul>
-			<li><h:form>
-					<h:commandLink action="#{productController.getCatalog}"
-						value="Get Catalog" />
-				</h:form></li>
-			<li><h:form>
-					<h:commandLink action="#{orderController.createOrder}"
-						value="New Order" />
-				</h:form></li>
-
-			<li><h:form>
-					<h:commandLink action="newCustomer" value="New Customer" />
-				</h:form></li>
-			<li><h:form>
-					<h:commandLink action="login" value="Login" />
-				</h:form></li>
-
-			<li><h:form>
-					<h:commandLink action="#{orderController.listOrders}"
-						value="My Orders" />
-				</h:form></li>
-		</ul>
+		
 		<h:form>
 			<div id="login-overlay" class="modal-dialog">
 				<div class="modal-content">
@@ -61,20 +40,10 @@
 										<h:message for="password" />
 										<span class="help-block"></span>
 									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="remember"
-											id="remember"> Remember login
-										</label>
-										<p class="help-block"></p>
-									</div>
+									
 									<h:commandButton action="#{administratorController.checkLogin}"
 										value="Login">
 									</h:commandButton>
-									<h:commandButton
-										action="#{administratorController.helpToLogin}"
-										value="Help to Login">
-									</h:commandButton>
-
 								</div>
 							</div>
 						</div>
@@ -85,3 +54,4 @@
 	</f:view>
 </body>
 </html>
+
