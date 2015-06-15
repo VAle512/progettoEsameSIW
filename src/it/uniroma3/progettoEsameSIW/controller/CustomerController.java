@@ -46,9 +46,8 @@ public class CustomerController {
 	private CustomerFacade customerFacade;
 
 	public String createCustomer(){
-		SimpleDateFormat format = new SimpleDateFormat("dd/mm/yyy");
+		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 		Date birthDate = null;
-		Customer c = null;
 		try {
 			birthDate = format.parse(this.birthDate);
 		} catch (ParseException e) {
@@ -58,7 +57,7 @@ public class CustomerController {
 		}
 		Address address = new Address(street, city, state, zipcode, country);
 		try {
-			c = this.customerFacade.createCustomer(name, surname, birthDate, new Date(), address, email, userId, password); }
+			this.customerFacade.createCustomer(name, surname, birthDate, new Date(), address, email, userId, password); }
 		catch (EJBTransactionRolledbackException e)	{
 			return "existEmail";
 		}

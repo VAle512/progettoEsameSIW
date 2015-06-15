@@ -43,14 +43,6 @@
 				</div>
 				<div class="form-group">
 					<div>
-						<label class="control-label col-sm-2" for="email">Email:</label>
-						<h:inputText value="#{customerController.email}" required="true"
-							requiredMessage="Email is mandatory" id="email" />
-						<h:message for="email" />
-					</div>
-				</div>
-				<div class="form-group">
-					<div>
 						<label class="control-label col-sm-2" for="street">Street
 							Address:</label>
 						<div>
@@ -100,6 +92,14 @@
 								id="country" />
 							<h:message for="country" />
 						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div>
+						<label class="control-label col-sm-2" for="email">Email:</label>
+						<h:inputText value="#{customerController.email}" required="true"
+							requiredMessage="Email is mandatory" id="email" />
+						<h:message for="email" />
 					</div>
 				</div>
 				<div class="form-group">
