@@ -42,8 +42,7 @@
 					</tbody>
 					
 				</table>
-				<button type="button" class="btn btn-danger"><h:commandLink onclick="history.back()" value="Danger! You may return back!" /></button>
-			</div>
+				<input type="button" value="Back" onclick="history.back()" />
 			
 		</h:form>
 	</f:view>
