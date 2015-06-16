@@ -2,6 +2,7 @@ package it.uniroma3.progettoEsameSIW.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,25 +14,28 @@ import javax.persistence.OneToOne;
 
 @Entity
 public class Provider {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	private String name;
 	@Column(unique = true,nullable = false)
 	private String vatin;
 	private String phoneNumber;
 	private String email;
 	@ManyToMany
 	private List<Product> products;
-	@OneToOne
+	@OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
 	private Address address;
-	
+
 	public Provider(){}
-	
-	public Provider(String vatin, String phoneNumber, String email) {
+
+	public Provider(String name, String vatin, String phoneNumber, String email, Address address) {
+		this.name = name;
 		this.vatin = vatin;
 		this.phoneNumber = phoneNumber;
 		this.email = email;
+		this.address = address;
 	}
 
 	public Long getId() {
@@ -40,6 +44,23 @@ public class Provider {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 	public String getVatin() {

@@ -18,27 +18,35 @@
 				<div class="form-group">
 					<div>
 						<label class="control-label col-sm-2" for="name">Name:</label>
-						<h:inputText value="#{customerController.name}" required="true"
+						<h:inputText value="#{providerController.name}" required="true"
 							requiredMessage="Name is mandatory" id="name" />
 						<h:message for="name" />
 					</div>
 				</div>
 				<div class="form-group">
 					<div>
-						<label class="control-label col-sm-2" for="surname">Surname:</label>
-						<h:inputText value="#{customerController.surname}" required="true"
-							requiredMessage="Surname is mandatory" id="surname" />
+						<label class="control-label col-sm-2" for="vatin">Vatin:</label>
+						<h:inputText value="#{providerController.vatin}" required="true"
+							requiredMessage="Vatin is mandatory" id="vatin" />
+						<h:message for="name" />
+					</div>
+				</div>
+				<div class="form-group">
+					<div>
+						<label class="control-label col-sm-2" for="phoneNumber">Phone
+							number:</label>
+						<h:inputText value="#{providerController.phoneNumber}"
+							required="true" requiredMessage="Surname is mandatory"
+							id="phoneNumber" />
 						<h:message for="surname" />
 					</div>
 				</div>
 				<div class="form-group">
 					<div>
-						<label class="control-label col-sm-2" for="birthDate">Date
-							of birth:</label>
-						<h:inputText value="#{customerController.birthDate}"
-							required="true" requiredMessage="Date of birth is mandatory"
-							id="birthDate" />
-						<h:message for="birthDate" errorClass="errorMessage" />
+						<label class="control-label col-sm-2" for="email">Email:</label>
+						<h:inputText value="#{providerController.email}" required="true"
+							requiredMessage="Email is mandatory" id="email" />
+						<h:message for="email" />
 					</div>
 				</div>
 				<div class="form-group">
@@ -46,7 +54,7 @@
 						<label class="control-label col-sm-2" for="street">Street
 							Address:</label>
 						<div>
-							<h:inputText value="#{customerController.street}" required="true"
+							<h:inputText value="#{providerController.street}" required="true"
 								requiredMessage="Street address is mandatory" id="street" />
 							<h:message for="street" />
 						</div>
@@ -56,7 +64,7 @@
 					<div>
 						<label class="control-label col-sm-2" for="city">City:</label>
 						<div>
-							<h:inputText value="#{customerController.city}" required="true"
+							<h:inputText value="#{providerController.city}" required="true"
 								requiredMessage="City is mandatory" id="city" />
 							<h:message for="city" />
 						</div>
@@ -66,7 +74,7 @@
 					<div>
 						<label class="control-label col-sm-2" for="state">State/Region:</label>
 						<div>
-							<h:inputText value="#{customerController.state}" required="true"
+							<h:inputText value="#{providerController.state}" required="true"
 								requiredMessage="State or region is mandatory" id="state" />
 							<h:message for="state" />
 						</div>
@@ -76,7 +84,7 @@
 					<div>
 						<label class="control-label col-sm-2" for="zipcode">Zipcode:</label>
 						<div>
-							<h:inputText value="#{customerController.zipcode}"
+							<h:inputText value="#{providerController.zipcode}"
 								required="true" requiredMessage="Zipcode is mandatory"
 								id="zipcode" />
 							<h:message for="zipcode" />
@@ -87,7 +95,7 @@
 					<div>
 						<label class="control-label col-sm-2" for="country">Country:</label>
 						<div>
-							<h:inputText value="#{customerController.country}"
+							<h:inputText value="#{providerController.country}"
 								required="true" requiredMessage="Country is mandatory"
 								id="country" />
 							<h:message for="country" />
@@ -95,29 +103,10 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<div>
-						<label class="control-label col-sm-2" for="email">Email:</label>
-						<h:inputText value="#{customerController.email}" required="true"
-							requiredMessage="Email is mandatory" id="email" />
-						<h:message for="email" />
-					</div>
-				</div>
-				<div class="form-group">
-					<div>
-						<label class="control-label col-sm-2" for="password">Password:</label>
-						<div>
-							<h:inputSecret value="#{customerController.password}"
-								required="true" requiredMessage="Password is mandatory"
-								id="password" />
-							<h:message for="password" />
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
-						<h:commandButton value="Register now!"
-							action="#{customerController.createCustomer}" />
-						<input type="button" value="Back to index"
+						<h:commandButton value="Insert now!"
+							action="#{providerController.createProvider}" />
+						<input type="button" value="Back"
 							onclick="history.back()" />
 					</div>
 				</div>

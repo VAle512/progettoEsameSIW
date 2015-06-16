@@ -24,6 +24,8 @@ import javax.servlet.http.HttpServletRequest;
 @ManagedBean
 public class CustomerController {
 
+	private static final String DATE_FORMAT = "dd/MM/yyyy";
+
 	@ManagedProperty(value="#{param.id}")
 	private Long id;
 	private String name;
@@ -46,13 +48,14 @@ public class CustomerController {
 	private CustomerFacade customerFacade;
 
 	public String createCustomer(){
-		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat format = new SimpleDateFormat("DATE_FORMAT");
 		Date birthDate = null;
 		try {
 			birthDate = format.parse(this.birthDate);
 		} catch (ParseException e) {
 			FacesContext facesContext = FacesContext.getCurrentInstance();
-			facesContext.addMessage("registrationForm:birthDate", new FacesMessage("Date format must be the following dd/mm/yyyy"));
+			String errMessage = "Date format must be the following " + DATE_FORMAT;
+			facesContext.addMessage("registrationForm:birthDate", new FacesMessage(errMessage));
 			return null;
 		}
 		Address address = new Address(street, city, state, zipcode, country);
@@ -63,7 +66,6 @@ public class CustomerController {
 		}
 		return "index";
 	}
-
 
 	public String checkLogin() throws Exception	{
 		Customer c = null;
