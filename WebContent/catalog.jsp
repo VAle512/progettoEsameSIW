@@ -15,7 +15,7 @@
 	<f:view>
 		<h:form>
 			<div class="container">
-			<h1>Our Catalog</h1>
+				<h1>Our Catalog</h1>
 				<table class="table table-striped">
 					<thead>
 						<tr>
@@ -34,16 +34,14 @@
 										<f:param name="id" value="#{product.id}" />
 									</h:commandLink></td>
 								<td>${product.code}</td>
-								<td>${product.price} &euro;</td>
+								<td>${product.price}&euro;</td>
 								<td>${product.storageQuantity}</td>
 							</tr>
 						</c:forEach>
-		
 					</tbody>
-					
 				</table>
 				<input type="button" value="Back" onclick="history.back()" />
-			
+			</div>
 		</h:form>
 	</f:view>
 	<%@ include file="htmlElements/footer.jsp"%>

@@ -30,7 +30,7 @@ public class Customer {
 	private Date registrationDate;
 	@Column(nullable = false, unique = true)
 	private String email;
-	@OneToMany(fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "customer",fetch = FetchType.EAGER)
 	private List<Order> orders;
 	@OneToOne(cascade={CascadeType.PERSIST, CascadeType.REMOVE})
 	private Address address;
@@ -74,7 +74,7 @@ public class Customer {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	public Long getId() {
 		return id;
 	}

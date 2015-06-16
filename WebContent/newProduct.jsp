@@ -72,10 +72,12 @@
 					<div class="col-sm-offset-2 col-sm-10">
 						<h:commandButton value="Submit"
 							action="#{productController.createProduct}" />
-						<h:commandButton value="Back to menu" action="indexAdministrator" />
 					</div>
 				</div>
 			</div>
+		</h:form>
+		<h:form>
+			<h:commandButton value="Back to menu" action="indexAdministrator" />
 		</h:form>
 	</f:view>
 	<%@ include file="htmlElements/footer.jsp"%>

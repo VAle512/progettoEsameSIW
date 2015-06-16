@@ -43,6 +43,7 @@
 				</table>
 			</div>
 		</h:form>
+		<input type="button" value="Back" onclick="history.back()" />
 	</f:view>
 	<%@ include file="htmlElements/footer.jsp"%>
 </body>
