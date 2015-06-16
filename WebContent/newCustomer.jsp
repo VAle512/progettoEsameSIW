@@ -117,9 +117,14 @@
 					<div class="col-sm-offset-2 col-sm-10">
 						<h:commandButton value="Register now!"
 							action="#{customerController.createCustomer}" />
-						<input type="button" value="Back to index"
-							onclick="history.back()" />
 					</div>
+				</div>
+			</div>
+		</h:form>
+		<h:form>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<h:commandButton value="Back to index!" action="index" />
 				</div>
 			</div>
 		</h:form>

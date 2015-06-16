@@ -46,6 +46,7 @@
 				<div class="panel-body">${orderController.orderTot}</div>
 			</div>
 		</div>
+		<input type="button" value="Back" onclick="history.back()" />
 	</f:view>
 	<%@ include file="htmlElements/footer.jsp"%>
 </body>

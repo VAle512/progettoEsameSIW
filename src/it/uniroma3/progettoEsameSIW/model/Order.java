@@ -4,12 +4,14 @@ package it.uniroma3.progettoEsameSIW.model;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -17,7 +19,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="orders")
 public class Order {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -28,11 +30,12 @@ public class Order {
 	@Column(nullable = false)
 	private Customer customer;
 	@OneToMany(fetch = FetchType.EAGER)
+	@JoinColumn(name = "orders_id")
 	private List<OrderLine> orderLines;
 	private Integer status;
-	
+
 	public Order(){}
-	
+
 	public Order(Date openDate, Customer customer) {
 		this.openDate = openDate;
 		this.closeDate = null;

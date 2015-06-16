@@ -13,9 +13,9 @@
 <body>
 	<%@ include file="htmlElements/header.jsp"%>
 	<f:view>
-		
+
 		<div class="container">
-		<h1>New Order</h1>
+			<h1>New Order</h1>
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -36,7 +36,7 @@
 										<f:param name="id" value="#{product.id}" />
 									</h:commandLink></td>
 								<td>${product.code}</td>
-								<td>${product.price} &euro;</td>
+								<td>${product.price}&euro;</td>
 								<td>${product.storageQuantity}</td>
 								<td><h:inputText value="#{orderLineController.quantity}"
 										id="quantity" /></td>
@@ -56,8 +56,8 @@
 				<h:commandButton action="#{orderController.orderRecap}"
 					value="Review & close">
 				</h:commandButton>
+				<input type="button" value="Back" onclick="history.back()" />
 			</div>
-			<input type="button" value="Back" onclick="history.back()" />
 		</h:form>
 	</f:view>
 	<%@ include file="htmlElements/footer.jsp"%>

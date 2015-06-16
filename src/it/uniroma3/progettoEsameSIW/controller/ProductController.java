@@ -41,7 +41,7 @@ public class ProductController {
 			return "missingProvider";
 		}
 		try{
-			this.product = productFacade.createProduct(name, code, description, price, storageQuantity, pv.getId());
+			this.product = this.productFacade.createProduct(name, code, description, price, storageQuantity, pv.getId());
 		}catch(EJBTransactionRolledbackException e){
 			return "productErr";
 		}

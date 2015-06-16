@@ -21,6 +21,8 @@ public class OrderFacade {
 		Customer c = this.em.find(Customer.class, customerId);
 		Order o = new Order(openDate,c);
 		this.em.persist(o);
+		c.getOrders().add(o);
+		this.em.merge(c);
 		return o;
 	}
 
