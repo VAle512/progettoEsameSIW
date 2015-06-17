@@ -22,6 +22,7 @@ public class Product {
 	private String name;
 	@Column(unique = true,nullable = false)
 	private String code;
+	@Column(length =2000)
 	private String description;
 	private Double price;
 	private Integer storageQuantity;

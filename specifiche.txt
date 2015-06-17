@@ -1,0 +1,47 @@
+Caso d'uso UC1: consulta listino
+Attore primario: utente non registrato
+Scenario principale di successo: 
+1)L’utente consulta il catalogo dei prodotti;
+2)L’utente sceglie un prodotto e ne richiede i dettagli;
+3)Il sistema mostra i dettagli del prodotto scelto;
+4)L’utente ripete i passi precedenti un numero indefinito di volte.
+
+Caso d'uso UC2: effettua ordine
+Attore primario: cliente (utente registrato)
+Scenario principale di successo: 
+1)Il cliente crea un ordine;
+2)Il cliente consulta il catalogo dei prodotti;
+3)Il cliente seleziona un prodotto e ne aggiunge la quantità e lo inserisce nell'ordine;
+4)Il sistema imposta il prezzo unitario del prodotto scelto al prezzo corrente di listino;
+5)Il sistema registra la riga ordine;
+Il cliente ripete i due passi precedenti finché necessario;
+6)Il cliente "chiude" l'ordine;
+7)Il sistema registra l'ordine.
+Precondizioni: il cliente è identificato e autenticato.
+
+Caso d'uso UC3: consulta i propri ordini
+Attore primario: cliente
+Scenario principale:
+1)Il cliente consulta l'elenco dei propri ordini;
+2)Il sistema mostra al cliente l'elenco dei suoi ordini;
+3)Il cliente chiede il dettaglio di un ordine;
+4)Il sistema mostra il dettaglio dell'ordine;
+5)Il cliente ripete i due passi precedenti finché necessario.
+Precondizioni: il cliente è identificato e autenticato
+
+Caso d'uso UC4: inserimento prodotti nel catalogo
+Attore primario: amministrazione
+Scenario principale:
+1)L’amministratore inserisce un nuovo prodotto nel catalogo specificandone i dettagli e la partita IVA del provider;
+2)Il sistema registra il prodotto e lo aggiunge alla lista dei prodotti del provider;
+3)I punti precedenti vengono ripetuti fino a che necessario.
+Precondizioni: l'amministratore è identificato e autenticato
+
+Caso d’uso UC5: inserimento provider
+Attore primario: amministrazione
+Scenario principale:
+1)L’amministratore inserisce un nuovo provider specificandone i dettagli;
+2)Il sistema registra il provider;
+3)I punti precedenti vengono ripetuti fino a che necessario.
+Precondizioni: l'amministratore è identificato e autenticato
+
