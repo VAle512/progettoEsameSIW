@@ -32,7 +32,7 @@
 		</div>
 		<p align="center">
 			<h:form>
-				<h:commandButton action="loginAdministrator" value="Back to menu" />
+				<h:commandButton action="indexAdministrator" value="Back to menu" />
 			</h:form>
 		</p>
 	</f:view>

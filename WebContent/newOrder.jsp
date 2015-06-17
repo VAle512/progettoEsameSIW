@@ -36,7 +36,7 @@
 										<f:param name="id" value="#{product.id}" />
 									</h:commandLink></td>
 								<td>${product.code}</td>
-								<td>${product.price}&euro;</td>
+								<td>${product.price} &euro;</td>
 								<td>${product.storageQuantity}</td>
 								<td><h:inputText value="#{orderLineController.quantity}"
 										id="quantity" /></td>

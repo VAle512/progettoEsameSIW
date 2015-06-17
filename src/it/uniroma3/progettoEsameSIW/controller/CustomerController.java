@@ -54,7 +54,7 @@ public class CustomerController {
 			birthDate = format.parse(this.birthDate);
 		} catch (ParseException e) {
 			FacesContext facesContext = FacesContext.getCurrentInstance();
-			String errMessage = "Date format must be the following " + DATE_FORMAT;
+			String errMessage = "Date format must be the following: " + DATE_FORMAT;
 			facesContext.addMessage("registrationForm:birthDate", new FacesMessage(errMessage));
 			return null;
 		}
